@@ -1,5 +1,5 @@
 [![npm version](https://badge.fury.io/js/ts-markdown-builder.svg)](https://badge.fury.io/js/ts-markdown-builder)
-![Build](https://github.com/callstack/ts-markdown-builder/actions/workflows/ci.yml/badge.svg)
+![Build](https://github.com/mdjastrzebski/ts-markdown-builder/actions/workflows/ci.yml/badge.svg)
 ![npm bundle size](https://deno.bundlejs.com/badge?q=ts-markdown-builder)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 [![Star on GitHub](https://img.shields.io/github/stars/mdjastrzebski/ts-markdown-builder.svg?style=social)](https://github.com/mdjastrzebski/ts-markdown-builder/stargazers)
