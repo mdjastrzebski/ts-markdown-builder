@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Elegant markdown builder with minimal bundle size.",
   "main": "dist/commonjs/index.js",
-  "module": "dist/esm/index.js",
+  "module": "dist/esm/index.mjs",
   "types": "dist/types/src/index.d.ts",
   "source": "src/index.ts",
   "sideEffects": false,
@@ -17,11 +17,6 @@
       "require": "./dist/commonjs/index.js",
       "import": "./dist/esm/index.mjs",
       "types": "./dist/types/index.d.ts"
-    },
-    "./patterns": {
-      "require": "./dist/commonjs/patterns/index.js",
-      "import": "./dist/esm/patterns/index.mjs",
-      "types": "./dist/types/patterns/index.d.ts"
     }
   },
   "scripts": {
@@ -147,5 +142,11 @@
     "tabWidth": 2,
     "trailingComma": "all",
     "useTabs": false
-  }
+  },
+  "size-limit": [
+    {
+      "path": "./dist/esm/index.mjs",
+      "limit": "1 kB"
+    }
+  ]
 }
