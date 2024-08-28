@@ -1,6 +1,6 @@
 {
   "name": "ts-markdown-builder",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Elegant markdown builder with minimal bundle size.",
   "main": "dist/commonjs/index.js",
   "module": "dist/esm/index.mjs",
