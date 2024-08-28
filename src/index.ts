@@ -1,14 +1,9 @@
 export {
+  horizontalRule,
   heading,
-  bold,
-  italic,
   blockquote,
   orderedList,
   unorderedList,
-  link,
-  image,
   codeBlock,
-  lineBreak,
-  horizontalRule,
-  escapeText,
-} from './basic';
+} from './block';
+export { lineBreak, code, italic, bold, link, image } from './inline';

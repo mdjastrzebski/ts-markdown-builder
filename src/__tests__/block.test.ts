@@ -1,13 +1,4 @@
-import {
-  blockquote,
-  bold,
-  heading,
-  horizontalRule,
-  italic,
-  lineBreak,
-  orderedList,
-  unorderedList,
-} from '../basic';
+import { blockquote, heading, horizontalRule, orderedList, unorderedList } from '../block';
 
 describe('heading', () => {
   it('renders heading levels correctly', () => {
@@ -24,24 +15,12 @@ describe('heading', () => {
   });
 });
 
-describe('bold', () => {
-  it('renders correctly', () => {
-    expect(bold('Hello, World!')).toBe('**Hello, World!**');
-  });
-});
-
-describe('italic', () => {
-  it('renders correctly', () => {
-    expect(italic('Hello, World!')).toBe('*Hello, World!*');
-  });
-});
-
 describe('blockquote', () => {
   it('renders singleline correctly', () => {
     expect(blockquote('Hello, World!')).toBe('> Hello, World!');
   });
   it('renders multiline correctly', () => {
-    expect(blockquote('Hello\nWorld\net al.!')).toBe('> Hello\n> World\n> et al.!');
+    expect(blockquote('Hello\nWorld\net al.!')).toBe(`> Hello\n> World\n> et al.!`);
   });
 });
 
@@ -58,12 +37,6 @@ describe('unorderedList', () => {
     const items = ['Item 1', 'Item 2', 'Item 3'];
     const expected = '- Item 1\n- Item 2\n- Item 3';
     expect(unorderedList(items)).toBe(expected);
-  });
-});
-
-describe('lineBreak', () => {
-  it('renders correctly', () => {
-    expect(lineBreak).toBe('  \n');
   });
 });
 
