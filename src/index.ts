@@ -1,3 +1,4 @@
+export { document } from './document';
 export {
   horizontalRule,
   heading,

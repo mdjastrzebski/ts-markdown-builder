@@ -20,28 +20,42 @@ describe('blockquote', () => {
     expect(blockquote('Hello, World!')).toBe('> Hello, World!');
   });
   it('renders multiline correctly', () => {
-    expect(blockquote('Hello\nWorld\net al.!')).toBe(`> Hello\n> World\n> et al.!`);
+    expect(blockquote('Hello\nWorld\net al.!')).toMatchInlineSnapshot(`
+      "> Hello
+      > World
+      > et al.!"
+    `);
   });
 });
 
 describe('orderedList', () => {
   it('renders correctly', () => {
     const items = ['Item 1', 'Item 2', 'Item 3'];
-    const expected = '1. Item 1\n2. Item 2\n3. Item 3';
-    expect(orderedList(items)).toBe(expected);
+    expect(orderedList(items)).toMatchInlineSnapshot(`
+      "1. Item 1
+      2. Item 2
+      3. Item 3"
+    `);
   });
 });
 
 describe('unorderedList', () => {
   it('renders correctly', () => {
     const items = ['Item 1', 'Item 2', 'Item 3'];
-    const expected = '- Item 1\n- Item 2\n- Item 3';
-    expect(unorderedList(items)).toBe(expected);
+    expect(unorderedList(items)).toMatchInlineSnapshot(`
+      "- Item 1
+      - Item 2
+      - Item 3"
+    `);
   });
 });
 
 describe('horizontalRule', () => {
   it('renders correctly', () => {
-    expect(horizontalRule).toBe('\n---\n');
+    expect(horizontalRule).toMatchInlineSnapshot(`
+      "
+      ---
+      "
+    `);
   });
 });
