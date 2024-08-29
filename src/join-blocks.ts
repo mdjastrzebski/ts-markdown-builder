@@ -4,7 +4,7 @@
  * @param blocks - The blocks of text to join.
  * @returns Markdown document string.
  */
-export function joinBlocks(blocks: string[]): string {
+export function joinBlocks(blocks: readonly string[]): string {
   return blocks.map(trimBlock).join('\n\n');
 }
 
