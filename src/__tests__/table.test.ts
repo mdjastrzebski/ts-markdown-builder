@@ -1,4 +1,4 @@
-import { table } from '../table';
+import { table } from '..';
 
 describe('table', () => {
   it('renders table correctly', () => {
