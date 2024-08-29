@@ -1,4 +1,4 @@
-export { document } from './document';
+export { joinBlocks } from './join-blocks';
 export {
   horizontalRule,
   heading,

@@ -1,4 +1,4 @@
-import { blockquote, heading, horizontalRule, orderedList, unorderedList } from '../block';
+import { blockquote, heading, horizontalRule, orderedList, unorderedList } from '..';
 
 describe('heading', () => {
   it('renders heading levels correctly', () => {
@@ -28,17 +28,6 @@ describe('blockquote', () => {
   });
 });
 
-describe('orderedList', () => {
-  it('renders correctly', () => {
-    const items = ['Item 1', 'Item 2', 'Item 3'];
-    expect(orderedList(items)).toMatchInlineSnapshot(`
-      "1. Item 1
-      2. Item 2
-      3. Item 3"
-    `);
-  });
-});
-
 describe('unorderedList', () => {
   it('renders correctly', () => {
     const items = ['Item 1', 'Item 2', 'Item 3'];
@@ -46,6 +35,17 @@ describe('unorderedList', () => {
       "- Item 1
       - Item 2
       - Item 3"
+    `);
+  });
+});
+
+describe('orderedList', () => {
+  it('renders correctly', () => {
+    const items = ['Item 1', 'Item 2', 'Item 3'];
+    expect(orderedList(items)).toMatchInlineSnapshot(`
+      "1. Item 1
+      2. Item 2
+      3. Item 3"
     `);
   });
 });

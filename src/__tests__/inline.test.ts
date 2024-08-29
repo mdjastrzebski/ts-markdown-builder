@@ -1,4 +1,4 @@
-import { bold, italic, lineBreak } from '../inline';
+import { bold, code, italic, lineBreak } from '..';
 
 describe('bold', () => {
   it('renders correctly', () => {
@@ -9,6 +9,12 @@ describe('bold', () => {
 describe('italic', () => {
   it('renders correctly', () => {
     expect(italic('Hello, World!')).toBe('*Hello, World!*');
+  });
+});
+
+describe('code', () => {
+  it('renders correctly', () => {
+    expect(code('Hello, World!')).toBe('`Hello, World!`');
   });
 });
 
