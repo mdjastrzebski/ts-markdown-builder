@@ -5,7 +5,13 @@
  */
 export const lineBreak = '<br/>';
 
+/**
+ * Options for the `disclosure` block.
+ */
 export type DisclosureOptions = {
+  /**
+   * Whether the disclosure block should be open by default.
+   */
   open?: boolean;
 };
 
@@ -22,6 +28,7 @@ export type DisclosureOptions = {
  *
  * @param title - The title of the disclosure.
  * @param content - The content of the disclosure.
+ * @param options - The options for the disclosure.
  */
 export function disclosure(title: string, content: string, options?: DisclosureOptions): string {
   return `<details${
