@@ -12,7 +12,10 @@ describe('disclosure', () => {
   });
 
   it('supports multiple paragraphs', () => {
-    const result = md.disclosure('Summary', ['This is paragraph 1.', 'This is paragraph 2.']);
+    const result = md.disclosure(
+      'Summary',
+      md.joinBlocks(['This is paragraph 1.', 'This is paragraph 2.']),
+    );
     expect(result).toMatchInlineSnapshot(`
       "<details>
       <summary>Summary</summary>
