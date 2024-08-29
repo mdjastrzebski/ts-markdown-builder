@@ -52,10 +52,6 @@ describe('orderedList', () => {
 
 describe('horizontalRule', () => {
   it('renders correctly', () => {
-    expect(md.horizontalRule).toMatchInlineSnapshot(`
-      "
-      ---
-      "
-    `);
+    expect(md.horizontalRule).toMatchInlineSnapshot(`"---"`);
   });
 });

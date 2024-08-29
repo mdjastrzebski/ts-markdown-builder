@@ -1,4 +1,11 @@
 /**
+ * Create a line break.
+ *
+ * Markdown/Html:: `<br/>`
+ */
+export const lineBreak = '<br/>';
+
+/**
  * Create a disclosure block.
  *
  * Markdown/Html:

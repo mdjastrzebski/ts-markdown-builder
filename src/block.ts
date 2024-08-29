@@ -5,7 +5,7 @@ import { prefixLines } from './utils';
  *
  * Markdown: `---`
  */
-export const horizontalRule = '\n---\n';
+export const horizontalRule = '---';
 
 /**
  * Create a heading block.

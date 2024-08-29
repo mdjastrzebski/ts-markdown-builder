@@ -1,5 +1,11 @@
 import * as md from '..';
 
+describe('lineBreak', () => {
+  it('renders correctly', () => {
+    expect(`Line 1${md.lineBreak}Line 2`).toBe('Line 1<br/>Line 2');
+  });
+});
+
 describe('disclosure', () => {
   it('supports single paragraph', () => {
     const result = md.disclosure('Summary', 'This is a paragraph.');
