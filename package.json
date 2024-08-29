@@ -4,7 +4,7 @@
   "description": "Elegant markdown builder with minimal bundle size.",
   "main": "dist/commonjs/index.js",
   "module": "dist/esm/index.mjs",
-  "types": "dist/types/src/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "source": "src/index.ts",
   "sideEffects": false,
   "files": [
