@@ -1,4 +1,4 @@
-import { blockquote, heading, horizontalRule, orderedList, unorderedList } from '..';
+import { blockquote, heading, horizontalRule, orderedList, list } from '..';
 
 describe('heading', () => {
   it('renders heading levels correctly', () => {
@@ -28,10 +28,10 @@ describe('blockquote', () => {
   });
 });
 
-describe('unorderedList', () => {
+describe('list', () => {
   it('renders correctly', () => {
     const items = ['Item 1', 'Item 2', 'Item 3'];
-    expect(unorderedList(items)).toMatchInlineSnapshot(`
+    expect(list(items)).toMatchInlineSnapshot(`
       "- Item 1
       - Item 2
       - Item 3"

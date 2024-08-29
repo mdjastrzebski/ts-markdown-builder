@@ -16,10 +16,10 @@ export function codeBlock(text: string): string {
   return `\`\`\`\n${text}\n\`\`\``;
 }
 
-export function orderedList(items: string[]): string {
-  return items.map((item, index) => `${index + 1}. ${item}`).join('\n');
+export function list(items: string[]): string {
+  return items.map((item) => `- ${item}`).join('\n');
 }
 
-export function unorderedList(items: string[]): string {
-  return items.map((item) => `- ${item}`).join('\n');
+export function orderedList(items: string[]): string {
+  return items.map((item, index) => `${index + 1}. ${item}`).join('\n');
 }

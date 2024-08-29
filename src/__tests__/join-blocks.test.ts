@@ -10,7 +10,7 @@ describe('joinBlocks', () => {
       md.heading('Heading 2'),
       'This is a paragraph.',
       md.orderedList(['Item 1', 'Item 2', 'Item 3']),
-      md.unorderedList(['Item 1', 'Item 2', 'Item 3']),
+      md.list(['Item 1', 'Item 2', 'Item 3']),
     ]);
     expect(result).toMatchInlineSnapshot(`
       "# Heading
@@ -37,5 +37,33 @@ describe('joinBlocks', () => {
 
   it('empty blocks', () => {
     expect(md.joinBlocks([])).toBe('');
+  });
+
+  it('README example', () => {
+    const output = md.joinBlocks([
+      md.heading('Welcome to TS Markdown Builder'),
+      "It's an easy to use modern markdown generator.",
+      'It supports:',
+      md.list([
+        `${md.bold('bold')} and ${md.italic('italic')}`,
+        `${md.code('code')} spans and code blocks`,
+        'unordered and ordered lists',
+        'blockquotes',
+        'and more!',
+      ]),
+    ]);
+    expect(output).toMatchInlineSnapshot(`
+      "# Welcome to TS Markdown Builder
+
+      It's an easy to use modern markdown generator.
+
+      It supports:
+
+      - **bold** and *italic*
+      - \`code\` spans and code blocks
+      - unordered and ordered lists
+      - blockquotes
+      - and more!"
+    `);
   });
 });
