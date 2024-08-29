@@ -1,29 +1,39 @@
-export function table(headers: string[], rows: string[][]): string {
-  if (headers.length === 0 && rows.length === 0) {
+export type TableOptions = {
+  compact: boolean;
+};
+
+export function table(header: string[], rows: string[][], options?: TableOptions): string {
+  if (header.length === 0) {
     return '';
   }
 
-  const widths = getColumnsWidth(headers, rows);
+  // Escape the header and rows content
+  header = header.map(escapeCellContent);
+  rows = rows.map((row) => row.map(escapeCellContent));
+
+  const widths = !options?.compact ? getColumnsWidth(header, rows) : header.map(() => 1);
+  const separators = header.map((_, i) => '-'.repeat(widths[i] ?? 0));
 
   return [
-    joinCells(padCells(headers, widths)),
-    joinCells(headers.map((_, index) => '-'.repeat(widths[index] ?? 0))),
-    ...rows.map((row) => joinCells(padCells(row, widths))),
+    renderRow(header, widths),
+    renderRow(separators, widths),
+    ...rows.map((row) => renderRow(row, widths)),
   ].join('\n');
 }
 
-function getColumnsWidth(headers: string[], rows: string[][]): number[] {
-  return headers.map((_, index) => getColumnWidth(headers, rows, index));
+function getColumnsWidth(header: string[], rows: string[][]): number[] {
+  return header.map((_, index) => getColumnWidth(header, rows, index));
 }
 
-function getColumnWidth(headers: string[], rows: string[][], index: number): number {
-  return Math.max(headers[index]?.length ?? 0, ...rows.map((row) => row[index]?.length ?? 0));
+function getColumnWidth(header: string[], rows: string[][], index: number): number {
+  return Math.max(header[index]?.length ?? 0, ...rows.map((row) => row[index]?.length ?? 0));
 }
 
-function padCells(cells: string[], widths: number[]): string[] {
-  return cells.map((cell, index) => cell.padEnd(widths[index] ?? 0));
+function renderRow(row: string[], widths: number[]): string {
+  const paddedCells = row.map((cell, index) => cell.padEnd(widths[index] ?? 0));
+  return `| ${paddedCells.join(' | ')} |`;
 }
 
-function joinCells(cells: string[]): string {
-  return `| ${cells.join(' | ')} |`;
+function escapeCellContent(cell: string): string {
+  return cell.replace(/\|/g, '\\|').replace(/\n/g, '<br/>');
 }
