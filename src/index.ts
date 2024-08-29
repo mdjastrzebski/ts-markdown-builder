@@ -5,3 +5,4 @@ export { table } from './table';
 export { lineBreak, disclosure } from './html';
 
 export type { TableOptions } from './table';
+export type { DisclosureOptions } from './html';

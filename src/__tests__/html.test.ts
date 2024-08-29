@@ -31,4 +31,14 @@ describe('disclosure', () => {
       </details>"
     `);
   });
+
+  it('supports open state', () => {
+    const result = md.disclosure('Summary', 'This is a paragraph.', { open: true });
+    expect(result).toMatchInlineSnapshot(`
+      "<details open>
+      <summary>Summary</summary>
+      This is a paragraph.
+      </details>"
+    `);
+  });
 });
