@@ -67,3 +67,14 @@ describe('joinBlocks', () => {
     `);
   });
 });
+
+describe('joinLines', () => {
+  it('basic case', () => {
+    const result = md.joinLines(['Line 1', 'Line 2', 'Line 3']);
+    expect(result).toMatchInlineSnapshot(`"Line 1<br/>Line 2<br/>Line 3"`);
+  });
+
+  it('empty lines', () => {
+    expect(md.joinLines([])).toBe('');
+  });
+});
