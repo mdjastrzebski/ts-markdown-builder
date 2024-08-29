@@ -1,4 +1,4 @@
-import { blockquote, heading, horizontalRule, orderedList, list } from '..';
+import { blockquote, heading, horizontalRule, list, orderedList } from '..';
 
 describe('heading', () => {
   it('renders heading levels correctly', () => {
