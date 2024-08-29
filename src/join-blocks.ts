@@ -1,3 +1,9 @@
+/**
+ * Join blocks of text into a single markdown document (string).
+ *
+ * @param blocks - The blocks of text to join.
+ * @returns Markdown document string.
+ */
 export function joinBlocks(blocks: string[]): string {
   return blocks.map(trimBlock).join('\n\n');
 }
