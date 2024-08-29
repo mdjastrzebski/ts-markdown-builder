@@ -1,26 +1,26 @@
-import { blockquote, heading, horizontalRule, list, orderedList } from '..';
+import * as md from '..';
 
 describe('heading', () => {
   it('renders heading levels correctly', () => {
-    expect(heading('Hello, World!', 1)).toBe('# Hello, World!');
-    expect(heading('Hello, World!', 2)).toBe('## Hello, World!');
-    expect(heading('Hello, World!', 3)).toBe('### Hello, World!');
-    expect(heading('Hello, World!', 4)).toBe('#### Hello, World!');
-    expect(heading('Hello, World!', 5)).toBe('##### Hello, World!');
-    expect(heading('Hello, World!', 6)).toBe('###### Hello, World!');
+    expect(md.heading('Hello, World!', 1)).toBe('# Hello, World!');
+    expect(md.heading('Hello, World!', 2)).toBe('## Hello, World!');
+    expect(md.heading('Hello, World!', 3)).toBe('### Hello, World!');
+    expect(md.heading('Hello, World!', 4)).toBe('#### Hello, World!');
+    expect(md.heading('Hello, World!', 5)).toBe('##### Hello, World!');
+    expect(md.heading('Hello, World!', 6)).toBe('###### Hello, World!');
   });
 
   it('renders default level', () => {
-    expect(heading('Hello, World!')).toBe('# Hello, World!');
+    expect(md.heading('Hello, World!')).toBe('# Hello, World!');
   });
 });
 
 describe('blockquote', () => {
   it('renders singleline correctly', () => {
-    expect(blockquote('Hello, World!')).toBe('> Hello, World!');
+    expect(md.blockquote('Hello, World!')).toBe('> Hello, World!');
   });
   it('renders multiline correctly', () => {
-    expect(blockquote('Hello\nWorld\net al.!')).toMatchInlineSnapshot(`
+    expect(md.blockquote('Hello\nWorld\net al.!')).toMatchInlineSnapshot(`
       "> Hello
       > World
       > et al.!"
@@ -31,7 +31,7 @@ describe('blockquote', () => {
 describe('list', () => {
   it('renders correctly', () => {
     const items = ['Item 1', 'Item 2', 'Item 3'];
-    expect(list(items)).toMatchInlineSnapshot(`
+    expect(md.list(items)).toMatchInlineSnapshot(`
       "- Item 1
       - Item 2
       - Item 3"
@@ -42,7 +42,7 @@ describe('list', () => {
 describe('orderedList', () => {
   it('renders correctly', () => {
     const items = ['Item 1', 'Item 2', 'Item 3'];
-    expect(orderedList(items)).toMatchInlineSnapshot(`
+    expect(md.orderedList(items)).toMatchInlineSnapshot(`
       "1. Item 1
       2. Item 2
       3. Item 3"
@@ -52,7 +52,7 @@ describe('orderedList', () => {
 
 describe('horizontalRule', () => {
   it('renders correctly', () => {
-    expect(horizontalRule).toMatchInlineSnapshot(`
+    expect(md.horizontalRule).toMatchInlineSnapshot(`
       "
       ---
       "
