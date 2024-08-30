@@ -11,8 +11,14 @@ describe('disclosure', () => {
     const result = md.disclosure('Summary', 'This is a paragraph.');
     expect(result).toMatchInlineSnapshot(`
       "<details>
-      <summary>Summary</summary>
+      <summary>
+
+      Summary
+
+      </summary>
+
       This is a paragraph.
+        
       </details>"
     `);
   });
@@ -24,10 +30,16 @@ describe('disclosure', () => {
     );
     expect(result).toMatchInlineSnapshot(`
       "<details>
-      <summary>Summary</summary>
+      <summary>
+
+      Summary
+
+      </summary>
+
       This is paragraph 1.
 
       This is paragraph 2.
+        
       </details>"
     `);
   });
@@ -36,8 +48,14 @@ describe('disclosure', () => {
     const result = md.disclosure('Summary', 'This is a paragraph.', { open: true });
     expect(result).toMatchInlineSnapshot(`
       "<details open>
-      <summary>Summary</summary>
+      <summary>
+
+      Summary
+
+      </summary>
+
       This is a paragraph.
+        
       </details>"
     `);
   });

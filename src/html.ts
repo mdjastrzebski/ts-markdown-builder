@@ -31,7 +31,11 @@ export type DisclosureOptions = {
  * @param options - The options for the disclosure.
  */
 export function disclosure(title: string, content: string, options?: DisclosureOptions): string {
-  return `<details${
-    options?.open ? ' open' : ''
-  }>\n<summary>${title}</summary>\n${content}\n</details>`;
+  // The extra new lines in <summary> and <details> are required for proper rendering in GitHub.
+  // See https://gist.github.com/scmx/eca72d44afee0113ceb0349dd54a84a2
+
+  return `<details${options?.open ? ' open' : ''}>
+<summary>\n\n${title}\n\n</summary>
+\n${content}\n  
+</details>`;
 }
