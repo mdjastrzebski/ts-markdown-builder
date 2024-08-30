@@ -34,8 +34,10 @@ export function disclosure(title: string, content: string, options?: DisclosureO
   // The extra new lines in <summary> and <details> are required for proper rendering in GitHub.
   // See https://gist.github.com/scmx/eca72d44afee0113ceb0349dd54a84a2
 
+  const headerHack = title.startsWith('#') ? '\n' : '';
+
   return `<details${options?.open ? ' open' : ''}>
-<summary>\n ${title}\n\n</summary>
+<summary>\n${headerHack}${title}\n\n</summary>
 \n${content}\n  
 </details>`;
 }

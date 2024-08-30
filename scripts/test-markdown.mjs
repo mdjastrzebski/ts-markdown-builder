@@ -32,20 +32,14 @@ const output = md.joinBlocks([
   md.heading('HTML', 3),
   md.heading('Disclosure', 4),
   md.disclosure('Summary', 'This is a disclosure.'),
-  md.disclosure(`${md.bold("Bold")} and ${md.italic("Italic")}`, 'This is a disclosure.'),
-  md.disclosure(
-    md.heading('Heading', 4),
-    md.joinBlocks(['This is paragraph 1.', 'This is paragraph 2.'])
-  ),
-  md.disclosure(
-    md.blockquote('Blockquote 1\nBlockquote 2'),
-    md.joinBlocks(['This is paragraph 1.', 'This is paragraph 2.'])
-  ),
-  md.disclosure(
-    md.codeBlock('console.log(1);\nconsole.log(2);'),
-    md.joinBlocks(['This is paragraph 1.', 'This is paragraph 2.'])
-  ),
+  md.disclosure(`AAA ${md.bold("Bold")} and ${md.italic("Italic")}`, 'This is a disclosure.'),
 
+  md.disclosure(md.heading('Heading 1', 1), 'This is paragraph.'),
+  md.disclosure(md.heading('Heading 2', 2), 'This is paragraph.'),
+  md.disclosure(md.heading('Heading 3', 3), 'This is paragraph.'),
+  md.disclosure(md.heading('Heading 4', 4), 'This is paragraph.'),
+  md.disclosure(md.heading('Heading 5', 5), 'This is paragraph.'),
+  md.disclosure(md.heading('Heading 6', 6), 'This is paragraph.'),
 
   md.heading('Tables', 3),
   md.table(
