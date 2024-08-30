@@ -12,7 +12,6 @@ describe('disclosure', () => {
     expect(result).toMatchInlineSnapshot(`
       "<details>
       <summary>
-
       Summary
 
       </summary>
@@ -31,7 +30,6 @@ describe('disclosure', () => {
     expect(result).toMatchInlineSnapshot(`
       "<details>
       <summary>
-
       Summary
 
       </summary>
@@ -49,7 +47,6 @@ describe('disclosure', () => {
     expect(result).toMatchInlineSnapshot(`
       "<details open>
       <summary>
-
       Summary
 
       </summary>

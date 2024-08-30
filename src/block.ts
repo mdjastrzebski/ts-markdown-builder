@@ -9,13 +9,13 @@ export const horizontalRule = '---';
 
 /**
  * Create a heading block.
- * Markdown: `# Heading`
+ * Markdown: `\n# Heading`
  *
  * @param text - The text of the heading.
  * @param level - The level of the heading (defaults to 1).
  */
 export function heading(text: string, level: number = 1): string {
-  return `${'#'.repeat(level)} ${text}`;
+  return `\n${'#'.repeat(level)} ${text}`;
 }
 
 /**
