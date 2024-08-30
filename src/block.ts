@@ -30,7 +30,7 @@ export function heading(text: string, level: number = 1): string {
  * @param text - The content of the blockquote.
  */
 export function blockquote(content: string): string {
-  return prefixLines(content, '> ');
+  return `\n` + prefixLines(content, '> ');
 }
 
 /**
@@ -46,7 +46,7 @@ export function blockquote(content: string): string {
  * @param content - The content of the code block.
  */
 export function codeBlock(content: string): string {
-  return `\`\`\`\n${content}\n\`\`\``;
+  return `\n` + `\`\`\`\n${content}\n\`\`\``;
 }
 
 /**

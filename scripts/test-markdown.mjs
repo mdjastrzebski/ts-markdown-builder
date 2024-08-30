@@ -41,6 +41,10 @@ const output = md.joinBlocks([
     md.blockquote('Blockquote 1\nBlockquote 2'),
     md.joinBlocks(['This is paragraph 1.', 'This is paragraph 2.'])
   ),
+  md.disclosure(
+    md.codeBlock('console.log(1);\nconsole.log(2);'),
+    md.joinBlocks(['This is paragraph 1.', 'This is paragraph 2.'])
+  ),
 
 
   md.heading('Tables', 3),
