@@ -2,16 +2,16 @@ import * as md from '..';
 
 describe('heading', () => {
   it('renders heading levels correctly', () => {
-    expect(md.heading('Hello, World!', 1)).toBe('\n# Hello, World!');
-    expect(md.heading('Hello, World!', 2)).toBe('\n## Hello, World!');
-    expect(md.heading('Hello, World!', 3)).toBe('\n### Hello, World!');
-    expect(md.heading('Hello, World!', 4)).toBe('\n#### Hello, World!');
-    expect(md.heading('Hello, World!', 5)).toBe('\n##### Hello, World!');
-    expect(md.heading('Hello, World!', 6)).toBe('\n###### Hello, World!');
+    expect(md.heading('Hello, World!', 1)).toBe('# Hello, World!');
+    expect(md.heading('Hello, World!', 2)).toBe('## Hello, World!');
+    expect(md.heading('Hello, World!', 3)).toBe('### Hello, World!');
+    expect(md.heading('Hello, World!', 4)).toBe('#### Hello, World!');
+    expect(md.heading('Hello, World!', 5)).toBe('##### Hello, World!');
+    expect(md.heading('Hello, World!', 6)).toBe('###### Hello, World!');
   });
 
   it('renders default level', () => {
-    expect(md.heading('Hello, World!')).toBe('\n# Hello, World!');
+    expect(md.heading('Hello, World!')).toBe('# Hello, World!');
   });
 });
 

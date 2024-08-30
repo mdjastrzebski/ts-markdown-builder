@@ -9,13 +9,13 @@ export const horizontalRule = '---';
 
 /**
  * Create a heading block.
- * Markdown: `\n# Heading`
+ * Markdown: `# Heading`
  *
  * @param text - The text of the heading.
  * @param level - The level of the heading (defaults to 1).
  */
 export function heading(text: string, level: number = 1): string {
-  return `\n${'#'.repeat(level)} ${text}`;
+  return `${'#'.repeat(level)} ${text}`;
 }
 
 /**
@@ -30,7 +30,7 @@ export function heading(text: string, level: number = 1): string {
  * @param text - The content of the blockquote.
  */
 export function blockquote(content: string): string {
-  return `\n` + prefixLines(content, '> ');
+  return prefixLines(content, '> ');
 }
 
 /**
@@ -46,7 +46,7 @@ export function blockquote(content: string): string {
  * @param content - The content of the code block.
  */
 export function codeBlock(content: string): string {
-  return `\n` + `\`\`\`\n${content}\n\`\`\``;
+  return `\`\`\`\n${content}\n\`\`\``;
 }
 
 /**
