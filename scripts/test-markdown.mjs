@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* eslint-disable prettier/prettier */
 
 import * as md from '../dist/esm/index.mjs';
 
@@ -20,7 +19,7 @@ const output = md.joinBlocks([
   md.codeBlock("console.log('Hello, world!');\nconsole.log('Hello markdown!"),
   md.horizontalRule,
 
-  md.heading('Inlines', 3),
+  md.heading('Inline', 3),
   md.list([
     md.bold('bold'),
     md.italic('Italic'),
