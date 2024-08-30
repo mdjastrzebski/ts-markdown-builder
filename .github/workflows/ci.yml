@@ -58,11 +58,8 @@ jobs:
 
       - name: Run Test Script
         run: |
-          echo $PWD
-          echo $CWD
-          ls -la
-          output=$(./test/test-markdown.mjs)
-          echo "TEST_OUTPUT<<EOF" >> $GITHUB_ENV
+          output=$(./scripts/test-markdown.mjs)
+          echo "SCRIPT_OUTPUT<<EOF" >> $GITHUB_ENV
           echo "$output" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
 
@@ -76,7 +73,7 @@ jobs:
             const owner = context.repo.owner
             const repo = context.repo.repo
 
-            const commentBody = `Script Output:\n\`\`\`\n${process.env.SCRIPT_OUTPUT}\n\`\`\``
+            const commentBody = `Test Output:\n\`\`\`\n${process.env.SCRIPT_OUTPUT}\n\`\`\``
 
             const { data: comments } = await github.rest.issues.listComments({
               owner,
@@ -85,7 +82,7 @@ jobs:
             })
 
             const botComment = comments.find(comment => 
-              comment.user.type === 'Bot' && comment.body.includes('Script Output:')
+              comment.user.type === 'Bot' && comment.body.includes('Test Output:')
             )
 
             if (botComment) {
