@@ -67,7 +67,7 @@ jobs:
           echo $PWD
           echo $CWD
           ls -la
-          output=$(./scripts/test-markdown.mjs)
+          output=$(./test/test-markdown.mjs)
           echo "TEST_OUTPUT<<EOF" >> $GITHUB_ENV
           echo "$output" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
