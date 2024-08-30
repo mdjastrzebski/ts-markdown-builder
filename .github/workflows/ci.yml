@@ -66,6 +66,7 @@ jobs:
         run: |
           echo $PWD
           echo $CWD
+          ls -la
           output=$(./scripts/test-markdown.mjs)
           echo "TEST_OUTPUT<<EOF" >> $GITHUB_ENV
           echo "$output" >> $GITHUB_ENV
