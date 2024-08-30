@@ -73,7 +73,7 @@ jobs:
             const owner = context.repo.owner
             const repo = context.repo.repo
 
-            const commentBody = `Test Output:\n\`\`\`\n${process.env.SCRIPT_OUTPUT}\n\`\`\``
+            const commentBody = `Test Output:\n\n${process.env.SCRIPT_OUTPUT}\n\n
 
             const { data: comments } = await github.rest.issues.listComments({
               owner,
@@ -82,7 +82,7 @@ jobs:
             })
 
             const botComment = comments.find(comment => 
-              comment.user.type === 'Bot' && comment.body.includes('Test Output:')
+              comment.user.type === 'Bot' && comment.body.startsWith('Test Output:')
             )
 
             if (botComment) {
