@@ -32,7 +32,7 @@ const output = md.joinBlocks([
   md.heading('HTML', 3),
   md.heading('Disclosure', 4),
   md.disclosure('Summary', 'This is a disclosure.'),
-  md.disclosure(`${md.bold("Bold")} and ${md.italics("Italics")}`, 'This is a disclosure.'),
+  md.disclosure(`${md.bold("Bold")} and ${md.italic("Italic")}`, 'This is a disclosure.'),
   md.disclosure(
     md.heading('Heading', 4),
     md.joinBlocks(['This is paragraph 1.', 'This is paragraph 2.'])
