@@ -35,7 +35,7 @@ export function disclosure(title: string, content: string, options?: DisclosureO
   // See https://gist.github.com/scmx/eca72d44afee0113ceb0349dd54a84a2
 
   return `<details${options?.open ? ' open' : ''}>
-<summary>\n\n${title}\n\n</summary>
+<summary>\n${title}\n\n</summary>
 \n${content}\n  
 </details>`;
 }
