@@ -5,7 +5,7 @@ import { prefixLines } from './utils';
  *
  * Markdown: `---`
  */
-export const horizontalRule = '\n---\n';
+export const horizontalRule = '---';
 
 /**
  * Create a heading block.
@@ -60,7 +60,7 @@ export function codeBlock(content: string): string {
  *
  * @param items - The items of the list.
  */
-export function list(items: string[]): string {
+export function list(items: readonly string[]): string {
   return items.map((item) => `- ${item}`).join('\n');
 }
 
@@ -75,6 +75,6 @@ export function list(items: string[]): string {
  *
  * @param items - The items of the list.
  */
-export function orderedList(items: string[]): string {
+export function orderedList(items: readonly string[]): string {
   return items.map((item, index) => `${index + 1}. ${item}`).join('\n');
 }

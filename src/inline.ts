@@ -1,11 +1,4 @@
 /**
- * Create a line break.
- *
- * Markdown: `__\n`
- */
-export const lineBreak = '  \n';
-
-/**
  * Create an italic text.
  *
  * Markdown: `*text*`

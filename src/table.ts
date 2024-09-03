@@ -2,7 +2,11 @@ export type TableOptions = {
   compact: boolean;
 };
 
-export function table(header: string[], rows: string[][], options?: TableOptions): string {
+export function table(
+  header: readonly string[],
+  rows: readonly string[][],
+  options?: TableOptions,
+): string {
   if (header.length === 0) {
     return '';
   }
@@ -21,15 +25,19 @@ export function table(header: string[], rows: string[][], options?: TableOptions
   ].join('\n');
 }
 
-function getColumnsWidth(header: string[], rows: string[][]): number[] {
+function getColumnsWidth(header: readonly string[], rows: readonly string[][]): number[] {
   return header.map((_, index) => getColumnWidth(header, rows, index));
 }
 
-function getColumnWidth(header: string[], rows: string[][], index: number): number {
+function getColumnWidth(
+  header: readonly string[],
+  rows: readonly string[][],
+  index: number,
+): number {
   return Math.max(header[index]?.length ?? 0, ...rows.map((row) => row[index]?.length ?? 0));
 }
 
-function renderRow(row: string[], widths: number[]): string {
+function renderRow(row: readonly string[], widths: readonly number[]): string {
   const paddedCells = row.map((cell, index) => cell.padEnd(widths[index] ?? 0));
   return `| ${paddedCells.join(' | ')} |`;
 }

@@ -56,6 +56,51 @@ jobs:
       - name: Build package
         run: yarn build
 
+      - name: Run Test Script
+        run: |
+          output=$(./scripts/test-markdown.mjs)
+          echo "SCRIPT_OUTPUT<<EOF" >> $GITHUB_ENV
+          echo "$output" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
+      - name: Update or Create Comment
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const fs = require('fs')
+            const issueNumber = context.issue.number
+            const owner = context.repo.owner
+            const repo = context.repo.repo
+
+            const commentBody = `Test Output:\n\n${process.env.SCRIPT_OUTPUT}\n\n`
+
+            const { data: comments } = await github.rest.issues.listComments({
+              owner,
+              repo,
+              issue_number: issueNumber
+            })
+
+            const botComment = comments.find(comment => 
+              comment.user.type === 'Bot' && comment.body.startsWith('Test Output:')
+            )
+
+            if (botComment) {
+              await github.rest.issues.updateComment({
+                owner,
+                repo,
+                comment_id: botComment.id,
+                body: commentBody
+              })
+            } else {
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number: issueNumber,
+                body: commentBody
+              })
+            }
+
       - name: Calculate Size
         if: github.event_name == 'pull_request'
         uses: andresz1/size-limit-action@v1

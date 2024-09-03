@@ -17,9 +17,3 @@ describe('code', () => {
     expect(md.code('Hello, World!')).toBe('`Hello, World!`');
   });
 });
-
-describe('lineBreak', () => {
-  it('renders correctly', () => {
-    expect(md.lineBreak).toBe('  \n');
-  });
-});
