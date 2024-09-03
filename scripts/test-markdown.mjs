@@ -34,9 +34,8 @@ const output = md.joinBlocks([
     md.code('code'),
     md.link('https://example.com', 'link'),
     md.link('https://example.com'),
-    md.image('https://example.com/image.png'),
+    md.image('https://markdown-here.com/img/icon64.png', "Markdown Logo"),
   ]),
-
   md.heading('HTML', 3),
   md.heading('Disclosure', 4),
   md.disclosure('Summary', 'This is a disclosure.'),
