@@ -64,6 +64,7 @@ jobs:
           echo "EOF" >> $GITHUB_ENV
 
       - name: Update or Create Comment
+        if: github.event_name == 'pull_request'
         uses: actions/github-script@v6
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
