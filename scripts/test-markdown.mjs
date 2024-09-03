@@ -2,6 +2,14 @@
 
 import * as md from '../dist/esm/index.mjs';
 
+const table = md.table(
+  ['A', 'B', 'C'],
+  [
+    ['1', '2', '3'],
+    ['4', '5', '6'],
+  ],
+);
+
 const output = md.joinBlocks([
   md.heading('Heading 1', 1),
   md.heading('Heading 2', 2),
@@ -41,14 +49,10 @@ const output = md.joinBlocks([
   md.disclosure(md.heading('Heading 5', 5), 'This is paragraph.'),
   md.disclosure(md.heading('Heading 6', 6), 'This is paragraph.'),
 
+  md.disclosure(md.heading('Table In Details', 3), table),
+
   md.heading('Tables', 3),
-  md.table(
-    ['A', 'B', 'C'],
-    [
-      ['1', '2', '3'],
-      ['4', '5', '6'],
-    ],
-  )
+  table,
 ]);
 
 console.log(output);

@@ -31,13 +31,14 @@ export type DisclosureOptions = {
  * @param options - The options for the disclosure.
  */
 export function disclosure(title: string, content: string, options?: DisclosureOptions): string {
+  // Add extra with lines to render header properly. New line should not be added for regular text
+  // as it messes up the formatting.
+  const headerHack = title.startsWith('#') ? '\n\n' : '';
+
   // The extra new lines in <summary> and <details> are required for proper rendering in GitHub.
   // See https://gist.github.com/scmx/eca72d44afee0113ceb0349dd54a84a2
-
-  const headerHack = title.startsWith('#') ? '\n' : '';
-
   return `<details${options?.open ? ' open' : ''}>
-<summary>\n${headerHack}${title}\n\n</summary>
+<summary>${headerHack}${title}${headerHack}</summary>
 \n${content}\n  
 </details>`;
 }
