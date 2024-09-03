@@ -11,10 +11,7 @@ describe('disclosure', () => {
     const result = md.disclosure('Summary', 'This is a paragraph.');
     expect(result).toMatchInlineSnapshot(`
       "<details>
-      <summary>
-      Summary
-
-      </summary>
+      <summary>Summary</summary>
 
       This is a paragraph.
         
@@ -29,10 +26,7 @@ describe('disclosure', () => {
     );
     expect(result).toMatchInlineSnapshot(`
       "<details>
-      <summary>
-      Summary
-
-      </summary>
+      <summary>Summary</summary>
 
       This is paragraph 1.
 
@@ -46,8 +40,21 @@ describe('disclosure', () => {
     const result = md.disclosure('Summary', 'This is a paragraph.', { open: true });
     expect(result).toMatchInlineSnapshot(`
       "<details open>
+      <summary>Summary</summary>
+
+      This is a paragraph.
+        
+      </details>"
+    `);
+  });
+
+  it('supports headings in summary', () => {
+    const result = md.disclosure(md.heading('Summary'), 'This is a paragraph.');
+    expect(result).toMatchInlineSnapshot(`
+      "<details>
       <summary>
-      Summary
+
+      # Summary
 
       </summary>
 
