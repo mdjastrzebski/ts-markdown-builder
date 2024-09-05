@@ -1,4 +1,59 @@
+import { type Content, handleOutput, renderContent } from './context';
 import { prefixLines } from './utils';
+
+// Container blocks
+export function paragraph(text: string): string {
+  return handleOutput(text);
+}
+
+/**
+ * Create a blockquote block.
+ *
+ * Markdown:
+ * ```
+ * > Content
+ * > Content
+ * ```
+ *
+ * @param text - The content of the blockquote.
+ */
+export function blockquote(content: Content): string {
+  const text = renderContent(content);
+  const output = prefixLines(text, '> ');
+  return handleOutput(output);
+}
+
+/**
+ * Create an unordered list block.
+ *
+ * Markdown:
+ * ```
+ * - Item
+ * - Item
+ * ```
+ *
+ * @param items - The items of the list.
+ */
+export function list(items: readonly string[]): string {
+  const output = items.map((item) => `- ${item}`).join('\n');
+  return handleOutput(output);
+}
+
+/**
+ * Create an ordered list block.
+ *
+ * Markdown:
+ * ```
+ * 1. Item
+ * 2. Item
+ * ```
+ *
+ * @param items - The items of the list.
+ */
+export function orderedList(items: readonly string[]): string {
+  const output = items.map((item, index) => `${index + 1}. ${item}`).join('\n');
+  return handleOutput(output);
+}
 
 /**
  * Create a horizontal rule block.
@@ -15,22 +70,8 @@ export const horizontalRule = '---';
  * @param level - The level of the heading (defaults to 1).
  */
 export function heading(text: string, level: number = 1): string {
-  return `${'#'.repeat(level)} ${text}`;
-}
-
-/**
- * Create a blockquote block.
- *
- * Markdown:
- * ```
- * > Content
- * > Content
- * ```
- *
- * @param text - The content of the blockquote.
- */
-export function blockquote(content: string): string {
-  return prefixLines(content, '> ');
+  const output = `${'#'.repeat(level)} ${text}`;
+  return handleOutput(output);
 }
 
 /**
@@ -46,35 +87,6 @@ export function blockquote(content: string): string {
  * @param content - The content of the code block.
  */
 export function codeBlock(content: string): string {
-  return `\`\`\`\n${content}\n\`\`\``;
-}
-
-/**
- * Create an unordered list block.
- *
- * Markdown:
- * ```
- * - Item
- * - Item
- * ```
- *
- * @param items - The items of the list.
- */
-export function list(items: readonly string[]): string {
-  return items.map((item) => `- ${item}`).join('\n');
-}
-
-/**
- * Create an ordered list block.
- *
- * Markdown:
- * ```
- * 1. Item
- * 2. Item
- * ```
- *
- * @param items - The items of the list.
- */
-export function orderedList(items: readonly string[]): string {
-  return items.map((item, index) => `${index + 1}. ${item}`).join('\n');
+  const output = `\`\`\`\n${content}\n\`\`\``;
+  return handleOutput(output);
 }

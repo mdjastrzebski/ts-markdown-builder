@@ -16,20 +16,45 @@ describe('heading', () => {
 });
 
 describe('blockquote', () => {
-  it('renders singleline correctly', () => {
+  it('renders text correctly', () => {
     expect(md.blockquote('Hello, World!')).toBe('> Hello, World!');
   });
-  it('renders multiline correctly', () => {
+
+  it('renders multiline text correctly', () => {
     expect(md.blockquote('Hello\nWorld\net al.!')).toMatchInlineSnapshot(`
       "> Hello
       > World
       > et al.!"
     `);
   });
+
+  it('renders nested blocks correctly', () => {
+    expect(
+      md.blockquote(() => {
+        md.heading('Header', 1);
+        md.paragraph('Line 1\nLine 2');
+        md.list(['Item', 'Item', 'Item']);
+        md.orderedList(['Item 1', 'Item 2', 'Item 3']);
+      }),
+    ).toMatchInlineSnapshot(`
+      "> # Header
+      > 
+      > Line 1
+      > Line 2
+      > 
+      > - Item
+      > - Item
+      > - Item
+      > 
+      > 1. Item 1
+      > 2. Item 2
+      > 3. Item 3"
+    `);
+  });
 });
 
 describe('list', () => {
-  it('renders correctly', () => {
+  it('renders text items correctly', () => {
     const items = ['Item 1', 'Item 2', 'Item 3'];
     expect(md.list(items)).toMatchInlineSnapshot(`
       "- Item 1
