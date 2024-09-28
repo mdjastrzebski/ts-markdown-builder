@@ -31,7 +31,7 @@ describe('disclosure', () => {
       This is paragraph 1.
 
       This is paragraph 2.
-        
+
       </details>"
     `);
   });
