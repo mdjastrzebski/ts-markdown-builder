@@ -2,12 +2,12 @@ import * as md from '..';
 
 describe('heading', () => {
   it('renders heading levels correctly', () => {
-    expect(md.heading('Hello, World!', 1)).toBe('# Hello, World!');
-    expect(md.heading('Hello, World!', 2)).toBe('## Hello, World!');
-    expect(md.heading('Hello, World!', 3)).toBe('### Hello, World!');
-    expect(md.heading('Hello, World!', 4)).toBe('#### Hello, World!');
-    expect(md.heading('Hello, World!', 5)).toBe('##### Hello, World!');
-    expect(md.heading('Hello, World!', 6)).toBe('###### Hello, World!');
+    expect(md.heading('Hello, World!', { level: 1 })).toBe('# Hello, World!');
+    expect(md.heading('Hello, World!', { level: 2 })).toBe('## Hello, World!');
+    expect(md.heading('Hello, World!', { level: 3 })).toBe('### Hello, World!');
+    expect(md.heading('Hello, World!', { level: 4 })).toBe('#### Hello, World!');
+    expect(md.heading('Hello, World!', { level: 5 })).toBe('##### Hello, World!');
+    expect(md.heading('Hello, World!', { level: 6 })).toBe('###### Hello, World!');
   });
 
   it('renders default level', () => {

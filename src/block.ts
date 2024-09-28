@@ -7,6 +7,10 @@ import { prefixLines } from './utils';
  */
 export const horizontalRule = '---';
 
+type HeadingOptions = {
+  level: number;
+};
+
 /**
  * Create a heading block.
  * Markdown: `# Heading`
@@ -14,7 +18,8 @@ export const horizontalRule = '---';
  * @param text - The text of the heading.
  * @param level - The level of the heading (defaults to 1).
  */
-export function heading(text: string, level: number = 1): string {
+export function heading(text: string, options?: HeadingOptions): string {
+  const level = options?.level ?? 1;
   return `${'#'.repeat(level)} ${text}`;
 }
 

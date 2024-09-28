@@ -11,9 +11,10 @@ Elegant markdown builder with minimal bundle size.
 ## Goal
 
 TypeScript markdown generation library:
+
 - easy to read and write API
 - build CommonMark & GFM compliant markdown
-- minimal bundle size + tree-shakable 
+- minimal bundle size + tree-shakable
 
 ## Installation
 
@@ -26,7 +27,7 @@ npm install ts-markdown-builder
 ```js
 import * as md from 'ts-markdown-builder';
 
-const output = md.joinBlocks([
+const output = [
   md.heading('Welcome to TS Markdown Builder'),
   "It's an easy to use modern markdown generator.",
   'It supports:',
@@ -37,7 +38,7 @@ const output = md.joinBlocks([
     'blockquotes',
     'and more!',
   ]),
-]);
+].join('\n\n');
 ```
 
 ```markdown
@@ -47,7 +48,7 @@ It's an easy to use modern markdown generator.
 
 It supports:
 
-- **bold** and *italic*
+- **bold** and _italic_
 - \`code\` spans and code blocks
 - unordered and ordered lists
 - blockquotes
