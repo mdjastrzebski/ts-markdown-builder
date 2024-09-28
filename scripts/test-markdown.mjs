@@ -10,7 +10,7 @@ const table = md.table(
   ],
 );
 
-const output = md.joinBlocks([
+const output = [
   md.heading('Heading 1', 1),
   md.heading('Heading 2', 2),
   md.heading('Heading 3', 3),
@@ -52,6 +52,6 @@ const output = md.joinBlocks([
 
   md.heading('Tables', 3),
   table,
-]);
+].join('\n\n');
 
 console.log(output);

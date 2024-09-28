@@ -14,7 +14,7 @@ describe('disclosure', () => {
       <summary>Summary</summary>
 
       This is a paragraph.
-        
+
       </details>"
     `);
   });
@@ -22,7 +22,7 @@ describe('disclosure', () => {
   it('supports multiple paragraphs', () => {
     const result = md.disclosure(
       'Summary',
-      md.joinBlocks(['This is paragraph 1.', 'This is paragraph 2.']),
+      ['This is paragraph 1.', 'This is paragraph 2.'].join('\n\n'),
     );
     expect(result).toMatchInlineSnapshot(`
       "<details>
@@ -43,7 +43,7 @@ describe('disclosure', () => {
       <summary>Summary</summary>
 
       This is a paragraph.
-        
+
       </details>"
     `);
   });
@@ -59,7 +59,7 @@ describe('disclosure', () => {
       </summary>
 
       This is a paragraph.
-        
+
       </details>"
     `);
   });

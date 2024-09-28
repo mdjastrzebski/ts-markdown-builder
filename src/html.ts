@@ -1,7 +1,7 @@
 /**
  * Create a line break.
  *
- * Markdown/Html:: `<br/>`
+ * Markdown (as HTML): `<br/>`
  */
 export const lineBreak = '<br/>';
 
@@ -10,7 +10,7 @@ export const lineBreak = '<br/>';
  */
 export type DisclosureOptions = {
   /**
-   * Whether the disclosure block should be open by default.
+   * Whether the disclosure block should be open by default (defaults to false).
    */
   open?: boolean;
 };
@@ -18,7 +18,7 @@ export type DisclosureOptions = {
 /**
  * Create a disclosure block.
  *
- * Markdown/Html:
+ * Markdown (as HTML):
  * ```
  * <details>
  *   <summary>Title</summary>
@@ -26,8 +26,8 @@ export type DisclosureOptions = {
  * </details>
  * ```
  *
- * @param title - The title of the disclosure.
- * @param content - The content of the disclosure.
+ * @param title - The title of the disclosure (text only or markdown heading: `# heading`).
+ * @param content - The content of the disclosure (can include markdown).
  * @param options - The options for the disclosure.
  */
 export function disclosure(title: string, content: string, options?: DisclosureOptions): string {
@@ -35,10 +35,14 @@ export function disclosure(title: string, content: string, options?: DisclosureO
   // as it messes up the formatting.
   const headerHack = title.startsWith('#') ? '\n\n' : '';
 
-  // The extra new lines in <summary> and <details> are required for proper rendering in GitHub.
-  // See https://gist.github.com/scmx/eca72d44afee0113ceb0349dd54a84a2
   return `<details${options?.open ? ' open' : ''}>
 <summary>${headerHack}${title}${headerHack}</summary>
-\n${content}\n  
+${escapeMarkdownInHtml(content)}
 </details>`;
+}
+
+// Blank lines are required for rendering a markdown section inside html tag.
+// See https://gist.github.com/scmx/eca72d44afee0113ceb0349dd54a84a2
+function escapeMarkdownInHtml(markdown: string): string {
+  return `\n${markdown}\n`;
 }

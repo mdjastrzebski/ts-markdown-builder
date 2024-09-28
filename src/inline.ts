@@ -23,7 +23,7 @@ export function bold(text: string): string {
 /**
  * Create a code text.
  *
- * Markdown: `\`text\``
+ * Markdown: `code`
  *
  * @param text - The text to be marked as code.
  */
