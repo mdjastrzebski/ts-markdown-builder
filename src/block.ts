@@ -1,4 +1,4 @@
-import { prefixLines } from './utils';
+import { joinBlocks, prefixLines } from './utils';
 
 /**
  * Create a horizontal rule block.
@@ -34,8 +34,8 @@ export function heading(text: string, options?: HeadingOptions): string {
  *
  * @param text - The content of the blockquote.
  */
-export function blockquote(content: string): string {
-  return prefixLines(content, '> ');
+export function blockquote(content: string | readonly string[]): string {
+  return prefixLines(joinBlocks(content), '> ');
 }
 
 /**
