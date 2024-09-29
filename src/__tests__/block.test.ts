@@ -19,12 +19,51 @@ describe('blockquote', () => {
   it('renders singleline correctly', () => {
     expect(md.blockquote('Hello, World!')).toBe('> Hello, World!');
   });
+
   it('renders multiline correctly', () => {
     expect(md.blockquote('Hello\nWorld\net al.!')).toMatchInlineSnapshot(`
       "> Hello
       > World
       > et al.!"
     `);
+  });
+
+  it('renders nested blockquote correctly', () => {
+    expect(
+      md.blockquote([
+        'Single indent',
+        md.blockquote([
+          'Double indent', //
+          md.blockquote('Triple indent'),
+        ]),
+        'Single indent',
+      ]),
+    ).toBe(`> Single indent
+> 
+> > Double indent
+> > 
+> > > Triple indent
+> 
+> Single indent`);
+  });
+
+  it('renders other block elements', () => {
+    expect(
+      md.blockquote([
+        md.heading('Heading'),
+        md.codeBlock('Code Line 1\nCode Line 2'),
+        md.list(['Item 1', 'Item 2', 'Item 3']),
+      ]),
+    ).toBe(`> # Heading
+> 
+> \`\`\`
+> Code Line 1
+> Code Line 2
+> \`\`\`
+> 
+> - Item 1
+> - Item 2
+> - Item 3`);
   });
 });
 
