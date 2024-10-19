@@ -1,8 +1,3 @@
-export function prefixLines(text: string, prefix: string): string {
-  const lines = text.split('\n');
-  return lines.map((line) => `${prefix}${line}`).join('\n');
-}
-
 /**
  * Join blocks of text into a single markdown document (string).
  *
@@ -12,12 +7,14 @@ export function prefixLines(text: string, prefix: string): string {
 export function joinBlocks(blocks: string | readonly string[]): string {
   blocks = typeof blocks === 'string' ? [blocks] : blocks;
 
-  return blocks
-    .filter((block) => block.trim().length > 0)
-    .map(trimBlock)
-    .join('\n\n');
+  return blocks.map(trimBlock).filter(Boolean).join('\n\n');
 }
 
 function trimBlock(block: string): string {
   return block.replace(/^\n+|\n+$/g, '');
+}
+
+export function prefixLines(text: string, prefix: string): string {
+  const lines = text.split('\n');
+  return lines.map((line) => `${prefix}${line}`).join('\n');
 }
