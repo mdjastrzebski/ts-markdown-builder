@@ -55,6 +55,38 @@ It supports:
 - and more!
 ```
 
+## Functions
+
+### Utils
+
+- `joinBlocks(blocks: string[])` - join blocks of text into a single markdown document (string) 
+
+### Block
+- `heading(text: string, options?: { level: number = 1 })`
+- `blockquote(text: string | string[])`
+- `codeBlock(text: string)`
+- `list(items: string[])`
+- `orderedList(items: string[])`
+- `horizontalRule`
+
+### Inline
+
+- `bold(text: string)`
+- `italic(text: string)`
+- `code(text: string)`
+- `link(url: string, text?: string)` - link or autolink
+- `image(url: string, text?: string)`
+- `escape(text: string)`
+
+### Table
+
+- `table(headers: string[], rows: string[][])`
+
+### HTML
+
+- `disclosure(title: string, content: string, options?: { open?: boolean })`
+- `lineBreak`
+
 ## Contributing
 
 See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
