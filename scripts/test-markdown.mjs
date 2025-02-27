@@ -10,7 +10,7 @@ const table = md.table(
   ],
 );
 
-const output = joinBlocks([
+const output = md.joinBlocks([
   md.heading('Heading 1', { level: 1 }),
   md.heading('Heading 2', { level: 2 }),
   md.heading('Heading 3', { level: 3 }),

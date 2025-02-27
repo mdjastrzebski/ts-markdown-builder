@@ -16,7 +16,7 @@ describe('code', () => {
   it('renders correctly', () => {
     expect(md.code('Hello, World!')).toBe('`Hello, World!`');
   });
-  
+
   it('handles backticks', () => {
     expect(md.code('Hello, `World`!')).toBe('``Hello, `World`!``');
     expect(md.code('`single`')).toBe('`` `single` ``');

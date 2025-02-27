@@ -33,7 +33,7 @@ export function code(text: string): string {
   const backticksCount = maxBackticks(text) + 1;
   const backticks = '`'.repeat(backticksCount);
   const frontPadding = text.startsWith('`') ? ' ' : '';
-  const backPadding = text.endsWith('`') ? ' ' : ''; 
+  const backPadding = text.endsWith('`') ? ' ' : '';
   return `${backticks}${frontPadding}${text}${backPadding}${backticks}`;
 }
 
