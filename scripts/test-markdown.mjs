@@ -71,6 +71,18 @@ const output = [
   md.disclosure(md.heading('Heading 5', { level: 5 }), 'This is paragraph.'),
   md.disclosure(md.heading('Heading 6', { level: 6 }), 'This is paragraph.'),
   md.disclosure(md.heading('Table In Details', { level: 3 }), table),
-].join('\n\n');
+
+  md.heading('Edge Cases', { level: 2 }),
+  md.code('code with `backticks` and other **stuff**'),
+  md.codeBlock(
+    `
+    Before nested code block
+    \`\`\`
+    Nested code block
+    \`\`\`
+    After nested code block
+    `
+  )
+  ].join('\n\n');
 
 console.log(output);

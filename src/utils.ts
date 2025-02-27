@@ -18,3 +18,19 @@ export function prefixLines(text: string, prefix: string): string {
   const lines = text.split('\n');
   return lines.map((line) => `${prefix}${line}`).join('\n');
 }
+
+export function maxConsecutiveBackticks(text: string): number {
+  let maxBackticks = 0;
+  let currentCount = 0;
+
+  for (let i = 0; i < text.length; i++) {
+    if (text[i] === '`') {
+      currentCount++;
+      maxBackticks = Math.max(maxBackticks, currentCount);
+    } else {
+      currentCount = 0;
+    }
+  }
+
+  return maxBackticks;
+}
