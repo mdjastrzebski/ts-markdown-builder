@@ -10,7 +10,7 @@ const table = md.table(
   ],
 );
 
-const output = [
+const output = md.joinBlocks([
   md.heading('Heading 1', { level: 1 }),
   md.heading('Heading 2', { level: 2 }),
   md.heading('Heading 3', { level: 3 }),
@@ -31,10 +31,10 @@ const output = [
   md.list([
     md.bold('bold'),
     md.italic('Italic'),
-    md.code('code'),
+    md.code('code with `backticks` and other **stuff**'),
     md.link('https://example.com', 'link'),
     md.link('https://example.com'),
-    md.image('https://markdown-here.com/img/icon64.png', "Markdown Logo"),
+    md.image('https://markdown-here.com/img/icon64.png', 'Markdown Logo'),
   ]),
 
   md.heading('Blockquote', { level: 2 }),
@@ -63,7 +63,7 @@ const output = [
 
   md.heading('Disclosure', { level: 3 }),
   md.disclosure('Summary', 'This is a disclosure.'),
-  md.disclosure(`AAA ${md.bold("Bold")} and ${md.italic("Italic")}`, 'This is a disclosure.'),
+  md.disclosure(`AAA ${md.bold('Bold')} and ${md.italic('Italic')}`, 'This is a disclosure.'),
   md.disclosure(md.heading('Heading 1', { level: 1 }), 'This is paragraph.'),
   md.disclosure(md.heading('Heading 2', { level: 2 }), 'This is paragraph.'),
   md.disclosure(md.heading('Heading 3', { level: 3 }), 'This is paragraph.'),
@@ -71,6 +71,22 @@ const output = [
   md.disclosure(md.heading('Heading 5', { level: 5 }), 'This is paragraph.'),
   md.disclosure(md.heading('Heading 6', { level: 6 }), 'This is paragraph.'),
   md.disclosure(md.heading('Table In Details', { level: 3 }), table),
-].join('\n\n');
+
+  md.heading('Edge Cases', { level: 2 }),
+  md.code('code with `backticks` and other **stuff**'),
+  md.code('`immediate backticks`'),
+  md.codeBlock(`Before nested code block
+
+\`\`\`
+
+Nested code block
+    
+\`\`\`
+    
+After nested code block`),
+  md.escape('regular text with `backtics` aa bbb'),
+  md.escape('regular text <div>with html</div> <br/> <br/> <br/> and some <b>bold</b>'),
+  md.escape('regular text { curly } [ square ] (round) # + - * / ! | \\'),
+]);
 
 console.log(output);

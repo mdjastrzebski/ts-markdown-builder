@@ -1,3 +1,5 @@
+import { maxBackticks } from './utils';
+
 /**
  * Create an italic text.
  *
@@ -28,7 +30,11 @@ export function bold(text: string): string {
  * @param text - The text to be marked as code.
  */
 export function code(text: string): string {
-  return `\`${text}\``;
+  const backticksCount = maxBackticks(text) + 1;
+  const backticks = '`'.repeat(backticksCount);
+  const frontPadding = text.startsWith('`') ? ' ' : '';
+  const backPadding = text.endsWith('`') ? ' ' : '';
+  return `${backticks}${frontPadding}${text}${backPadding}${backticks}`;
 }
 
 /**

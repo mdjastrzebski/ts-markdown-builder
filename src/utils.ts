@@ -18,3 +18,23 @@ export function prefixLines(text: string, prefix: string): string {
   const lines = text.split('\n');
   return lines.map((line) => `${prefix}${line}`).join('\n');
 }
+
+export function escape(text: string): string {
+  return text.replace(/([\\`*_{}[\]()#+\-.!|<>])/g, '\\$1');
+}
+
+export function maxBackticks(text: string): number {
+  let max = 0;
+  let current = 0;
+
+  for (let i = 0; i < text.length; i++) {
+    if (text[i] === '`') {
+      current++;
+      max = Math.max(max, current);
+    } else {
+      current = 0;
+    }
+  }
+
+  return max;
+}

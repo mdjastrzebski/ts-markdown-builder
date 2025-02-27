@@ -16,4 +16,11 @@ describe('code', () => {
   it('renders correctly', () => {
     expect(md.code('Hello, World!')).toBe('`Hello, World!`');
   });
+
+  it('handles backticks', () => {
+    expect(md.code('Hello, `World`!')).toBe('``Hello, `World`!``');
+    expect(md.code('`single`')).toBe('`` `single` ``');
+    expect(md.code('``nested``')).toBe('``` ``nested`` ```');
+    expect(md.code('`a` ``b`` ```c```')).toBe('```` `a` ``b`` ```c``` ````');
+  });
 });

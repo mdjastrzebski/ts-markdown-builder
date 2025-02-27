@@ -94,3 +94,15 @@ describe('horizontalRule', () => {
     expect(md.horizontalRule).toMatchInlineSnapshot(`"---"`);
   });
 });
+
+describe('codeBlock', () => {
+  it('renders correctly', () => {
+    expect(md.codeBlock('Hello, World!')).toBe('```\nHello, World!\n```');
+  });
+
+  it('handles backticks', () => {
+    expect(md.codeBlock('Hello, `World`!')).toBe('```\nHello, `World`!\n```');
+    expect(md.codeBlock('Hello, ``World``!')).toBe('```\nHello, ``World``!\n```');
+    expect(md.codeBlock('```AAA BBB```')).toBe('````\n```AAA BBB```\n````');
+  });
+});
