@@ -27,7 +27,7 @@ npm install ts-markdown-builder
 ```js
 import * as md from 'ts-markdown-builder';
 
-const output = [
+const output = joinBlocks([
   md.heading('Welcome to TS Markdown Builder'),
   "It's an easy to use modern markdown generator.",
   'It supports:',
@@ -38,7 +38,7 @@ const output = [
     'blockquotes',
     'and more!',
   ]),
-].join('\n\n');
+]);
 ```
 
 ```markdown

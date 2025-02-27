@@ -19,7 +19,7 @@ export function prefixLines(text: string, prefix: string): string {
   return lines.map((line) => `${prefix}${line}`).join('\n');
 }
 
-export function escapeText(text: string): string {
+export function escape(text: string): string {
   return text.replace(/([\\`*_{}[\]()#+\-.!|<>])/g, '\\$1');
 }
 

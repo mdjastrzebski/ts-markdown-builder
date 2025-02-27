@@ -1,8 +1,4 @@
-import { escapeText, maxBackticks } from './utils';
-
-export function literal(text: string): string {
-  return escapeText(text);
-}
+import { maxBackticks } from './utils';
 
 /**
  * Create an italic text.
@@ -34,8 +30,11 @@ export function bold(text: string): string {
  * @param text - The text to be marked as code.
  */
 export function code(text: string): string {
-  const backticks = maxBackticks(text) + 1;
-  return '`'.repeat(backticks) + text + '`'.repeat(backticks);
+  const backticksCount = maxBackticks(text) + 1;
+  const backticks = '`'.repeat(backticksCount);
+  const frontPadding = text.startsWith('`') ? ' ' : '';
+  const backPadding = text.endsWith('`') ? ' ' : ''; 
+  return `${backticks}${frontPadding}${text}${backPadding}${backticks}`;
 }
 
 /**

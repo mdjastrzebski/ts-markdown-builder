@@ -10,7 +10,7 @@ const table = md.table(
   ],
 );
 
-const output = [
+const output = joinBlocks([
   md.heading('Heading 1', { level: 1 }),
   md.heading('Heading 2', { level: 2 }),
   md.heading('Heading 3', { level: 3 }),
@@ -74,6 +74,7 @@ const output = [
 
   md.heading('Edge Cases', { level: 2 }),
   md.code('code with `backticks` and other **stuff**'),
+  md.code('`immediate backticks`'),
   md.codeBlock(`Before nested code block
 
 \`\`\`
@@ -83,8 +84,9 @@ Nested code block
 \`\`\`
     
 After nested code block`),
-  md.text('regular text with `backtics` aa bbb'),
-  md.text('regular text <div>with html</div> <br/> <br/> <br/> and some <b>bold</b>'),
-].join('\n\n');
+  md.escape('regular text with `backtics` aa bbb'),
+  md.escape('regular text <div>with html</div> <br/> <br/> <br/> and some <b>bold</b>'),
+  md.escape('regular text { curly } [ square ] (round) # + - * / ! | \\'),
+]);
 
 console.log(output);
