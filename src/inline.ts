@@ -1,4 +1,4 @@
-import { maxConsecutiveBackticks } from './utils';
+import { maxBackticks } from './utils';
 
 /**
  * Create an italic text.
@@ -30,7 +30,7 @@ export function bold(text: string): string {
  * @param text - The text to be marked as code.
  */
 export function code(text: string): string {
-  const backticks = maxConsecutiveBackticks(text) + 1;
+  const backticks = maxBackticks(text) + 1;
   return '`'.repeat(backticks) + text + '`'.repeat(backticks);
 }
 

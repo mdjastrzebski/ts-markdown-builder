@@ -34,7 +34,7 @@ const output = [
     md.code('code with `backticks` and other **stuff**'),
     md.link('https://example.com', 'link'),
     md.link('https://example.com'),
-    md.image('https://markdown-here.com/img/icon64.png', "Markdown Logo"),
+    md.image('https://markdown-here.com/img/icon64.png', 'Markdown Logo'),
   ]),
 
   md.heading('Blockquote', { level: 2 }),
@@ -63,7 +63,7 @@ const output = [
 
   md.heading('Disclosure', { level: 3 }),
   md.disclosure('Summary', 'This is a disclosure.'),
-  md.disclosure(`AAA ${md.bold("Bold")} and ${md.italic("Italic")}`, 'This is a disclosure.'),
+  md.disclosure(`AAA ${md.bold('Bold')} and ${md.italic('Italic')}`, 'This is a disclosure.'),
   md.disclosure(md.heading('Heading 1', { level: 1 }), 'This is paragraph.'),
   md.disclosure(md.heading('Heading 2', { level: 2 }), 'This is paragraph.'),
   md.disclosure(md.heading('Heading 3', { level: 3 }), 'This is paragraph.'),
@@ -74,8 +74,7 @@ const output = [
 
   md.heading('Edge Cases', { level: 2 }),
   md.code('code with `backticks` and other **stuff**'),
-  md.codeBlock(`
-Before nested code block
+  md.codeBlock(`Before nested code block
 
 \`\`\`
 
@@ -83,8 +82,8 @@ Nested code block
     
 \`\`\`
     
-After nested code block
-`)
-  ].join('\n\n');
+After nested code block`),
+  'regular text with `backtics` aa bbb',
+].join('\n\n');
 
 console.log(output);

@@ -1,4 +1,4 @@
-import { joinBlocks, maxConsecutiveBackticks, prefixLines } from './utils';
+import { joinBlocks, maxBackticks, prefixLines } from './utils';
 
 /**
  * Create a horizontal rule block.
@@ -42,16 +42,14 @@ export function blockquote(content: string | readonly string[]): string {
  * Create a code block.
  *
  * Markdown:
- * ````
  * ```
  * Content
  * ```
- * ````
  *
  * @param content - The content of the code block.
  */
 export function codeBlock(content: string): string {
-  const backticks = Math.max(maxConsecutiveBackticks(content), 3) + 1;
+  const backticks = Math.max(maxBackticks(content), 3) + 1;
   return '`'.repeat(backticks) + '\n' + content + '\n' + '`'.repeat(backticks);
 }
 
