@@ -31,7 +31,7 @@ const output = [
   md.list([
     md.bold('bold'),
     md.italic('Italic'),
-    md.code('code'),
+    md.code('code with `backticks` and other **stuff**'),
     md.link('https://example.com', 'link'),
     md.link('https://example.com'),
     md.image('https://markdown-here.com/img/icon64.png', "Markdown Logo"),
