@@ -1,5 +1,5 @@
 export { horizontalRule, heading, blockquote, orderedList, list, codeBlock } from './block';
-export { literal, italic, bold, link, image } from './inline';
+export { literal, code, italic, bold, link, image } from './inline';
 export { table } from './table';
 export { lineBreak, disclosure } from './html';
 export { joinBlocks } from './utils';
