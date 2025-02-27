@@ -28,7 +28,7 @@ export function bold(text: string): string {
  * @param text - The text to be marked as code.
  */
 export function code(text: string): string {
-  return `\`${text.replace(/`/g, '\\`')}\``;
+  return `\`${text.replaceAll('`', '\\`')}\``;
 }
 
 /**
