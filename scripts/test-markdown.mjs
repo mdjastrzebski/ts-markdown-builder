@@ -74,19 +74,17 @@ const output = [
 
   md.heading('Edge Cases', { level: 2 }),
   md.code('code with `backticks` and other **stuff**'),
-  md.codeBlock(
-    `
-    Before nested code block
+  md.codeBlock(`
+Before nested code block
 
-    \`\`\`
+\`\`\`
 
-    Nested code block
+Nested code block
     
-    \`\`\`
+\`\`\`
     
-    After nested code block
-    `
-  )
+After nested code block
+`)
   ].join('\n\n');
 
 console.log(output);
