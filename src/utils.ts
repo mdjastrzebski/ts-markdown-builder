@@ -20,7 +20,7 @@ export function prefixLines(text: string, prefix: string): string {
 }
 
 export function escapeText(text: string): string {
-  return text.replace(/[\\`*_{}[\]()#+\-.!~]/g, '\\$&');
+  return text.replace(/([\\`*_{}[\]()#+\-.!|<>])/g, '\\$1');
 }
 
 export function maxBackticks(text: string): number {
