@@ -77,9 +77,13 @@ const output = [
   md.codeBlock(
     `
     Before nested code block
+
     \`\`\`
+
     Nested code block
+    
     \`\`\`
+    
     After nested code block
     `
   )
