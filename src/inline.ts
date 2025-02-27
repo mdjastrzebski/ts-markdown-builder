@@ -1,4 +1,8 @@
-import { maxBackticks } from './utils';
+import { escapeText, maxBackticks } from './utils';
+
+export function literal(text: string): string {
+  return escapeText(text);
+}
 
 /**
  * Create an italic text.

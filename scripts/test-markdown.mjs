@@ -83,7 +83,7 @@ Nested code block
 \`\`\`
     
 After nested code block`),
-  'regular text with `backtics` aa bbb',
+  md.literal('regular text with `backtics` aa bbb'),
 ].join('\n\n');
 
 console.log(output);

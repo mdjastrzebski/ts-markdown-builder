@@ -49,7 +49,7 @@ export function blockquote(content: string | readonly string[]): string {
  * @param content - The content of the code block.
  */
 export function codeBlock(content: string): string {
-  const backticks = Math.max(maxBackticks(content), 3) + 1;
+  const backticks = Math.max(maxBackticks(content), 2) + 1;
   return '`'.repeat(backticks) + '\n' + content + '\n' + '`'.repeat(backticks);
 }
 
