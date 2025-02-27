@@ -28,7 +28,8 @@ export function bold(text: string): string {
  * @param text - The text to be marked as code.
  */
 export function code(text: string): string {
-  return `\`${text.replaceAll('`', '\\`')}\``;
+  const maxBackticks = Math.max(0, ...text.matchAll(/`/g).map((match) => match.length));
+  return "`".repeat(maxBackticks + 1) + text + "`".repeat(maxBackticks + 1);
 }
 
 /**
