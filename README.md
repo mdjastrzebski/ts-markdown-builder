@@ -27,7 +27,7 @@ npm install ts-markdown-builder
 ```js
 import * as md from 'ts-markdown-builder';
 
-const output = joinBlocks([
+const output = md.joinBlocks([
   md.heading('Welcome to TS Markdown Builder'),
   "It's an easy to use modern markdown generator.",
   'It supports:',
