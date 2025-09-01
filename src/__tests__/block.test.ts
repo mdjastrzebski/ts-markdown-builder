@@ -100,6 +100,12 @@ describe('codeBlock', () => {
     expect(md.codeBlock('Hello, World!')).toBe('```\nHello, World!\n```');
   });
 
+  it('renders custom language', () => {
+    expect(md.codeBlock('console.log("Hello, World!")', { language: 'js' })).toBe(
+      '```js\nconsole.log("Hello, World!")\n```',
+    );
+  });
+
   it('handles backticks', () => {
     expect(md.codeBlock('Hello, `World`!')).toBe('```\nHello, `World`!\n```');
     expect(md.codeBlock('Hello, ``World``!')).toBe('```\nHello, ``World``!\n```');

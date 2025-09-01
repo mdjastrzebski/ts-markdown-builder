@@ -38,19 +38,25 @@ export function blockquote(content: string | readonly string[]): string {
   return prefixLines(joinBlocks(content), '> ');
 }
 
+type CodeBlockOptions = {
+  language: string;
+};
+
 /**
  * Create a code block.
  *
  * Markdown:
- * ```
+ * ```js
  * Content
  * ```
  *
  * @param content - The content of the code block.
+ * @param language - The language of the code block.
  */
-export function codeBlock(content: string): string {
+export function codeBlock(content: string, options?: CodeBlockOptions): string {
+  const language = options?.language ?? '';
   const backticks = Math.max(maxBackticks(content), 2) + 1;
-  return '`'.repeat(backticks) + '\n' + content + '\n' + '`'.repeat(backticks);
+  return '`'.repeat(backticks) + language + '\n' + content + '\n' + '`'.repeat(backticks);
 }
 
 /**

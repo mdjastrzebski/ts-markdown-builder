@@ -64,7 +64,7 @@ It supports:
 ### Block
 - `heading(text: string, options?: { level: number = 1 })`
 - `blockquote(text: string | string[])`
-- `codeBlock(text: string)`
+- `codeBlock(text: string, options?: { language?: string = '' })`
 - `list(items: string[])`
 - `orderedList(items: string[])`
 - `horizontalRule`
