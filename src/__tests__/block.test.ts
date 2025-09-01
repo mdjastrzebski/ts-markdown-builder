@@ -100,8 +100,8 @@ describe('codeBlock', () => {
     expect(md.codeBlock('Hello, World!')).toBe('```\nHello, World!\n```');
   });
 
-  it('renders custom syntax', () => {
-    expect(md.codeBlock('console.log("Hello, World!")', { syntax: 'js' })).toBe(
+  it('renders custom language', () => {
+    expect(md.codeBlock('console.log("Hello, World!")', { language: 'js' })).toBe(
       '```js\nconsole.log("Hello, World!")\n```',
     );
   });

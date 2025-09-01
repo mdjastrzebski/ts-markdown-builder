@@ -39,7 +39,7 @@ export function blockquote(content: string | readonly string[]): string {
 }
 
 type CodeBlockOptions = {
-  syntax: string;
+  language: string;
 };
 
 /**
@@ -51,12 +51,12 @@ type CodeBlockOptions = {
  * ```
  *
  * @param content - The content of the code block.
- * @param syntax - The syntax of the code block.
+ * @param language - The language of the code block.
  */
 export function codeBlock(content: string, options?: CodeBlockOptions): string {
-  const syntax = options?.syntax ?? '';
+  const language = options?.language ?? '';
   const backticks = Math.max(maxBackticks(content), 2) + 1;
-  return '`'.repeat(backticks) + syntax + '\n' + content + '\n' + '`'.repeat(backticks);
+  return '`'.repeat(backticks) + language + '\n' + content + '\n' + '`'.repeat(backticks);
 }
 
 /**
