@@ -39,7 +39,7 @@ export function blockquote(content: string | readonly string[]): string {
 }
 
 type CodeBlockOptions = {
-  language: string;
+  language?: string;
 };
 
 /**

@@ -29,7 +29,8 @@
     "build:esm": "BABEL_ENV=esm babel src --out-dir \"dist/esm\" --extensions .js,.ts --out-file-extension .mjs  --source-maps --no-comments",
     "build:types": "tsc --project tsconfig.release.json --outDir \"dist/types\"",
     "release": "release-it",
-    "release:beta": "release-it --preRelease=beta"
+    "release:beta": "release-it --preRelease=beta",
+    "validate": "yarn typecheck && yarn lint && yarn test"
   },
   "keywords": [
     "markdown",

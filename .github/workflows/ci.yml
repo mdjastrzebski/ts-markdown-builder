@@ -62,6 +62,7 @@ jobs:
           echo "SCRIPT_OUTPUT<<EOF" >> $GITHUB_ENV
           echo "$output" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
+          echo "SCRIPT OUTPUT: $output"
 
       - name: Update or Create Comment
         if: github.event_name == 'pull_request'
