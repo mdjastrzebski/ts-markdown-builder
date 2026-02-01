@@ -28,9 +28,12 @@
     "build:commonjs": "BABEL_ENV=cjs babel src --out-dir \"dist/commonjs\" --extensions .js,.ts --out-file-extension .js --source-maps --no-comments",
     "build:esm": "BABEL_ENV=esm babel src --out-dir \"dist/esm\" --extensions .js,.ts --out-file-extension .mjs  --source-maps --no-comments",
     "build:types": "tsc --project tsconfig.release.json --outDir \"dist/types\"",
+    "format": "prettier --write \"**/*.{js,ts,tsx}\"",
+    "format:check": "prettier --check \"**/*.{js,ts,tsx}\"",
+    "validate": "yarn typecheck && yarn lint && yarn test && yarn format:check",
+    "validate:fix": "yarn format && yarn lint --fix && yarn typecheck && yarn test && yarn build",
     "release": "release-it",
-    "release:beta": "release-it --preRelease=beta",
-    "validate": "yarn typecheck && yarn lint && yarn test"
+    "release:beta": "release-it --preRelease=beta"
   },
   "keywords": [
     "markdown",
