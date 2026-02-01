@@ -88,3 +88,23 @@ export function list(items: readonly string[]): string {
 export function orderedList(items: readonly string[]): string {
   return items.map((item, index) => `${index + 1}. ${item}`).join('\n');
 }
+
+export type TaskListItem = {
+  text: string;
+  done?: boolean;
+};
+
+/**
+ * Create a task list block.
+ *
+ * Markdown:
+ * ```
+ * - [x] Done item
+ * - [ ] Pending item
+ * ```
+ *
+ * @param items - The items of the task list.
+ */
+export function taskList(items: readonly TaskListItem[]): string {
+  return items.map((item) => `- [${item.done ? 'x' : ' '}] ${item.text}`).join('\n');
+}

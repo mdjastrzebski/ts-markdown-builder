@@ -95,6 +95,35 @@ describe('horizontalRule', () => {
   });
 });
 
+describe('taskList', () => {
+  it('renders all unchecked items', () => {
+    expect(md.taskList([{ text: 'Item 1' }, { text: 'Item 2' }, { text: 'Item 3' }]))
+      .toMatchInlineSnapshot(`
+      "- [ ] Item 1
+      - [ ] Item 2
+      - [ ] Item 3"
+    `);
+  });
+
+  it('renders mixed checked and unchecked items', () => {
+    expect(
+      md.taskList([
+        { text: 'Done item', done: true },
+        { text: 'Pending item', done: false },
+        { text: 'Another done', done: true },
+      ]),
+    ).toMatchInlineSnapshot(`
+      "- [x] Done item
+      - [ ] Pending item
+      - [x] Another done"
+    `);
+  });
+
+  it('defaults done to false when omitted', () => {
+    expect(md.taskList([{ text: 'No done field' }])).toBe('- [ ] No done field');
+  });
+});
+
 describe('codeBlock', () => {
   it('renders correctly', () => {
     expect(md.codeBlock('Hello, World!')).toBe('```\nHello, World!\n```');
