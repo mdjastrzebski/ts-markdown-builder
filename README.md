@@ -98,4 +98,4 @@ MIT
 
 ## Reference
 
-TODO
+See the full [API Reference](API.md) for detailed documentation, parameter descriptions, and usage examples.
