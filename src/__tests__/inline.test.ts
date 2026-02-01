@@ -12,6 +12,12 @@ describe('italic', () => {
   });
 });
 
+describe('strikethrough', () => {
+  it('renders correctly', () => {
+    expect(md.strikethrough('Hello, World!')).toBe('~~Hello, World!~~');
+  });
+});
+
 describe('code', () => {
   it('renders correctly', () => {
     expect(md.code('Hello, World!')).toBe('`Hello, World!`');
