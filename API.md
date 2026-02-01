@@ -1,16 +1,16 @@
 # API Reference
 
-All functions are pure and return strings. Their outputs can be composed by passing one function's result as input to another.
+Every function is pure and returns a string. You can compose them by passing one function's output as input to another.
 
 ```ts
 import { heading, bold, joinBlocks } from 'ts-markdown-builder';
 ```
 
-## Block Elements
+## Block elements
 
 ### `heading(text, options?)`
 
-Creates a markdown heading.
+Markdown heading (`#`, `##`, etc.).
 
 | Parameter       | Type     | Default | Description         |
 | --------------- | -------- | ------- | ------------------- |
@@ -24,7 +24,7 @@ heading('Title', { level: 2 }); // '## Title'
 
 ### `blockquote(content)`
 
-Creates a blockquote block. Accepts a string or an array of strings (joined as separate blocks).
+Blockquote block. Accepts a string or an array of strings (joined as separate blocks).
 
 | Parameter | Type                          | Description        |
 | --------- | ----------------------------- | ------------------ |
@@ -40,7 +40,7 @@ blockquote(['Paragraph 1', 'Paragraph 2']);
 
 ### `codeBlock(content, options?)`
 
-Creates a fenced code block. Backtick fences automatically adjust if the content itself contains backticks.
+Fenced code block. The backtick fence adjusts automatically when the content contains backticks.
 
 | Parameter          | Type     | Default | Description                                 |
 | ------------------ | -------- | ------- | ------------------------------------------- |
@@ -56,7 +56,7 @@ codeBlock('const x = 1;', { language: 'ts' });
 
 ### `list(items)`
 
-Creates an unordered (bullet) list.
+Unordered (bullet) list.
 
 | Parameter | Type                | Description |
 | --------- | ------------------- | ----------- |
@@ -69,7 +69,7 @@ list(['Apples', 'Oranges']);
 
 ### `orderedList(items)`
 
-Creates an ordered (numbered) list.
+Ordered (numbered) list.
 
 | Parameter | Type                | Description |
 | --------- | ------------------- | ----------- |
@@ -82,7 +82,7 @@ orderedList(['First', 'Second']);
 
 ### `taskList(items)`
 
-Creates a GFM task list (checkboxes).
+GFM task list with checkboxes.
 
 | Parameter | Type                      | Description     |
 | --------- | ------------------------- | --------------- |
@@ -102,17 +102,17 @@ taskList([{ text: 'Buy milk', done: true }, { text: 'Write docs' }]);
 
 ### `horizontalRule`
 
-A constant string that renders a horizontal rule. Not a function -- use it directly.
+Horizontal rule constant. Not a function -- use it directly.
 
 ```ts
 horizontalRule; // '---'
 ```
 
-## Inline Elements
+## Inline elements
 
 ### `bold(text)`
 
-Wraps text in bold markers.
+Bold text (`**...**`).
 
 | Parameter | Type     | Description  |
 | --------- | -------- | ------------ |
@@ -124,7 +124,7 @@ bold('important'); // '**important**'
 
 ### `italic(text)`
 
-Wraps text in italic markers.
+Italic text (`*...*`).
 
 | Parameter | Type     | Description       |
 | --------- | -------- | ----------------- |
@@ -136,7 +136,7 @@ italic('emphasis'); // '*emphasis*'
 
 ### `code(text)`
 
-Wraps text in inline code backticks. Automatically adjusts backtick count and spacing if the text contains backticks.
+Inline code span. Backtick count and spacing adjust automatically when the text itself contains backticks.
 
 | Parameter | Type     | Description          |
 | --------- | -------- | -------------------- |
@@ -149,7 +149,7 @@ code('has `tick`'); // '`` has `tick` ``'
 
 ### `link(url, text?)`
 
-Creates a link. When `text` is omitted, produces an autolink (`<url>`).
+Link or autolink. Without `text`, produces an autolink (`<url>`).
 
 | Parameter | Type     | Description        |
 | --------- | -------- | ------------------ |
@@ -163,7 +163,7 @@ link('https://example.com'); // '<https://example.com>'
 
 ### `image(url, text?)`
 
-Creates an image.
+Image (`![alt](url)`).
 
 | Parameter | Type     | Description       |
 | --------- | -------- | ----------------- |
@@ -179,7 +179,7 @@ image('photo.png'); // '![](photo.png)'
 
 ### `table(header, rows, options?)`
 
-Creates a GFM table. Pipe characters and newlines in cell content are escaped automatically. Returns an empty string if `header` is empty.
+GFM table. Pipe characters and newlines in cell content are escaped automatically. Returns `''` if `header` is empty.
 
 | Parameter         | Type                  | Default | Description                             |
 | ----------------- | --------------------- | ------- | --------------------------------------- |
@@ -212,11 +212,11 @@ table(['A', 'B'], [['1', '2']], { compact: true });
 // | 1 | 2 |
 ```
 
-## HTML Elements
+## HTML elements
 
 ### `disclosure(title, content, options?)`
 
-Creates an HTML `<details>`/`<summary>` disclosure block. Content is wrapped with blank lines so markdown inside it renders correctly.
+HTML `<details>`/`<summary>` block. Content is wrapped with blank lines so markdown inside it renders correctly.
 
 | Parameter      | Type      | Default | Description                                   |
 | -------------- | --------- | ------- | --------------------------------------------- |
@@ -250,7 +250,7 @@ disclosure('Details', 'Body', { open: true });
 
 ### `lineBreak`
 
-A constant string that renders an HTML line break. Not a function -- use it directly.
+HTML line break constant. Not a function -- use it directly.
 
 ```ts
 lineBreak; // '<br/>'
@@ -260,7 +260,7 @@ lineBreak; // '<br/>'
 
 ### `joinBlocks(blocks)`
 
-Joins markdown blocks with double newlines (blank line between each). Trims leading/trailing newlines from each block and filters out empty blocks. Accepts a single string or an array of strings.
+Joins blocks with double newlines (a blank line between each). Trims leading/trailing newlines per block and drops empty ones. Accepts a single string or an array.
 
 | Parameter | Type                          | Description    |
 | --------- | ----------------------------- | -------------- |
@@ -283,7 +283,7 @@ Escapes markdown special characters (`\ ` `` ` `` `*` `_` `{` `}` `[` `]` `(` `)
 escape('**not bold**'); // '\\*\\*not bold\\*\\*'
 ```
 
-## Exported Types
+## Exported types
 
 | Type                | Description                 |
 | ------------------- | --------------------------- |
