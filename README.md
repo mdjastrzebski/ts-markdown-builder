@@ -67,6 +67,7 @@ It supports:
 - `codeBlock(text: string, options?: { language?: string = '' })`
 - `list(items: string[])`
 - `orderedList(items: string[])`
+- `taskList(items: TaskListItem[])` - GFM task list with checkboxes (`TaskListItem: { text: string, done?: boolean }`)
 - `horizontalRule`
 
 ### Inline
