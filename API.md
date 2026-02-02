@@ -97,7 +97,10 @@ orderedList(items: readonly string[]): string
 ### `taskList`
 
 ```ts
-taskList([{ text: 'Buy milk', done: true }, { text: 'Write docs' }]);
+taskList([
+  { text: 'Buy milk', done: true },
+  { text: 'Write docs' },
+]);
 // - [x] Buy milk
 // - [ ] Write docs
 ```
@@ -237,7 +240,13 @@ table(
 // | Alice | 30  |
 // | Bob   | 25  |
 
-table(['A', 'B'], [['1', '2']], { compact: true });
+table(
+  ['A', 'B'],
+  [
+    ['1', '2'],
+  ],
+  { compact: true },
+);
 // | A | B |
 // | - | - |
 // | 1 | 2 |
@@ -246,7 +255,11 @@ table(['A', 'B'], [['1', '2']], { compact: true });
 GFM table. Pipe characters and newlines in cell content are escaped automatically. Returns `''` if `header` is empty.
 
 ```tsx
-table(header: readonly string[], rows: readonly string[][], options?: TableOptions): string
+table(
+  header: readonly string[],
+  rows: readonly string[][],
+  options?: TableOptions,
+): string
 ```
 
 - `header` — Column headers
@@ -318,12 +331,16 @@ HTML line break constant. Not a function -- use it directly.
 ### `joinBlocks`
 
 ```ts
-joinBlocks([heading('Title'), list(['A', 'B']), 'Some text']);
+joinBlocks([
+  heading('Title'), 
+  list(['A', 'B']),
+  'Some text',
+]);
 // # Title
-// 
+//
 // - A
 // - B
-// 
+//
 // Some text'
 ```
 
