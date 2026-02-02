@@ -21,7 +21,7 @@ const output = md.joinBlocks([
   md.heading('Lists', { level: 2 }),
   md.list(['Item 1', 'Item 2', 'Item 3']),
   md.orderedList(['Item 1', 'Item 2', 'Item 3']),
-  md.taskList([{ text: 'Item 1' }, { text: 'Item 2', done: true }, { text: 'Item 3', done: false }]),
+  md.taskList(['Item 1', { text: 'Item 2', done: true }, { text: 'Item 3', done: false }]),
 
   md.heading('Blocks', { level: 2 }),
   md.blockquote('This is a blockquote.\nIt can span multiple lines.'),

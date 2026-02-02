@@ -67,7 +67,7 @@ It supports:
 - [`codeBlock(text: string, options?: { language?: string = '' })`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#codeblock)
 - [`list(items: string[])`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#list)
 - [`orderedList(items: string[])`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#orderedlist)
-- [`taskList(items: TaskListItem[])`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#tasklist) - GFM task list with checkboxes (`TaskListItem: { text: string, done?: boolean }`)
+- [`taskList(items: (string | TaskListItem)[])`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#tasklist) - GFM task list with checkboxes (items can be strings or `{ text: string, done?: boolean }`)
 - [`horizontalRule`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#horizontalrule)
 
 ### Inline

@@ -105,6 +105,13 @@ export type TaskListItem = {
  *
  * @param items - The items of the task list.
  */
-export function taskList(items: readonly TaskListItem[]): string {
-  return items.map((item) => `- [${item.done ? 'x' : ' '}] ${item.text}`).join('\n');
+export function taskList(items: readonly (string | TaskListItem)[]): string {
+  const result = [];
+  for (const item of items) {
+    const text = typeof item === 'string' ? item : item.text;
+    const done = typeof item === 'string' ? false : item.done;
+    result.push(`- [${done ? 'x' : ' '}] ${text}`);
+  }
+
+  return result.join('\n');
 }
