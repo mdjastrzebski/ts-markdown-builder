@@ -99,19 +99,19 @@ orderedList(items: readonly string[]): string
 ```ts
 taskList([
   { text: 'Buy milk', done: true },
-  { text: 'Write docs' },
+  'Write docs',
 ]);
 // - [x] Buy milk
 // - [ ] Write docs
 ```
 
-GFM task list with checkboxes.
+GFM task list with checkboxes. Items can be plain strings (unchecked by default) or `TaskListItem` objects.
 
 ```tsx
-taskList(items: readonly TaskListItem[]): string
+taskList(items: readonly (string | TaskListItem)[]): string
 ```
 
-- `items` — Task list items
+- `items` — Task list items (strings or `TaskListItem` objects)
 
 **`TaskListItem`**
 
