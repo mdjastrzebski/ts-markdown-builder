@@ -8,7 +8,7 @@ import { heading, bold, joinBlocks } from 'ts-markdown-builder';
 
 ## Block elements
 
-### `heading(text, options?)`
+### `heading`
 
 Markdown heading (`#`, `##`, etc.).
 
@@ -22,7 +22,7 @@ heading('Title'); // '# Title'
 heading('Title', { level: 2 }); // '## Title'
 ```
 
-### `blockquote(content)`
+### `blockquote`
 
 Blockquote block. Accepts a string or an array of strings (joined as separate blocks).
 
@@ -38,7 +38,7 @@ blockquote(['Paragraph 1', 'Paragraph 2']);
 // '> Paragraph 1\n> \n> Paragraph 2'
 ```
 
-### `codeBlock(content, options?)`
+### `codeBlock`
 
 Fenced code block. The backtick fence adjusts automatically when the content contains backticks.
 
@@ -54,7 +54,7 @@ codeBlock('const x = 1;', { language: 'ts' });
 // ```
 ````
 
-### `list(items)`
+### `list`
 
 Unordered (bullet) list.
 
@@ -67,7 +67,7 @@ list(['Apples', 'Oranges']);
 // '- Apples\n- Oranges'
 ```
 
-### `orderedList(items)`
+### `orderedList`
 
 Ordered (numbered) list.
 
@@ -80,7 +80,7 @@ orderedList(['First', 'Second']);
 // '1. First\n2. Second'
 ```
 
-### `taskList(items)`
+### `taskList`
 
 GFM task list with checkboxes.
 
@@ -110,7 +110,7 @@ horizontalRule; // '---'
 
 ## Inline elements
 
-### `bold(text)`
+### `bold`
 
 Bold text (`**...**`).
 
@@ -122,7 +122,7 @@ Bold text (`**...**`).
 bold('important'); // '**important**'
 ```
 
-### `italic(text)`
+### `italic`
 
 Italic text (`*...*`).
 
@@ -134,7 +134,7 @@ Italic text (`*...*`).
 italic('emphasis'); // '*emphasis*'
 ```
 
-### `strikethrough(text)`
+### `strikethrough`
 
 GFM strikethrough text (`~~...~~`).
 
@@ -146,7 +146,7 @@ GFM strikethrough text (`~~...~~`).
 strikethrough('removed'); // '~~removed~~'
 ```
 
-### `code(text)`
+### `code`
 
 Inline code span. Backtick count and spacing adjust automatically when the text itself contains backticks.
 
@@ -159,7 +159,7 @@ code('foo'); // '`foo`'
 code('has `tick`'); // '`` has `tick` ``'
 ```
 
-### `link(url, text?)`
+### `link`
 
 Link or autolink. Without `text`, produces an autolink (`<url>`).
 
@@ -173,7 +173,7 @@ link('https://example.com', 'Example'); // '[Example](https://example.com)'
 link('https://example.com'); // '<https://example.com>'
 ```
 
-### `image(url, text?)`
+### `image`
 
 Image (`![alt](url)`).
 
@@ -189,7 +189,7 @@ image('photo.png'); // '![](photo.png)'
 
 ## Table
 
-### `table(header, rows, options?)`
+### `table`
 
 GFM table. Pipe characters and newlines in cell content are escaped automatically. Returns `''` if `header` is empty.
 
@@ -226,7 +226,7 @@ table(['A', 'B'], [['1', '2']], { compact: true });
 
 ## HTML elements
 
-### `disclosure(title, content, options?)`
+### `disclosure`
 
 HTML `<details>`/`<summary>` block. Content is wrapped with blank lines so markdown inside it renders correctly.
 
@@ -270,7 +270,7 @@ lineBreak; // '<br/>'
 
 ## Utilities
 
-### `joinBlocks(blocks)`
+### `joinBlocks`
 
 Joins blocks with double newlines (a blank line between each). Trims leading/trailing newlines per block and drops empty ones. Accepts a single string or an array.
 
@@ -283,7 +283,7 @@ joinBlocks([heading('Title'), list(['A', 'B']), 'Some text']);
 // '# Title\n\n- A\n- B\n\nSome text'
 ```
 
-### `escape(text)`
+### `escape`
 
 Escapes markdown special characters (`\ ` `` ` `` `*` `_` `{` `}` `[` `]` `(` `)` `#` `+` `-` `.` `!` `|` `<` `>`).
 
