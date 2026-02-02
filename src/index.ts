@@ -7,7 +7,7 @@ export {
   codeBlock,
   taskList,
 } from './block';
-export { code, italic, bold, link, image } from './inline';
+export { code, italic, bold, strikethrough, link, image } from './inline';
 export { table } from './table';
 export { lineBreak, disclosure } from './html';
 export { escape, joinBlocks } from './utils';

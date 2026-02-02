@@ -23,6 +23,17 @@ export function bold(text: string): string {
 }
 
 /**
+ * Create a strikethrough text.
+ *
+ * Markdown: `~~text~~`
+ *
+ * @param text - The text to be struck through.
+ */
+export function strikethrough(text: string): string {
+  return `~~${text}~~`;
+}
+
+/**
  * Create a code text.
  *
  * Markdown: `code`

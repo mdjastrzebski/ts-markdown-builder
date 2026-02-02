@@ -134,6 +134,18 @@ Italic text (`*...*`).
 italic('emphasis'); // '*emphasis*'
 ```
 
+### `strikethrough(text)`
+
+GFM strikethrough text (`~~...~~`).
+
+| Parameter | Type     | Description              |
+| --------- | -------- | ------------------------ |
+| `text`    | `string` | Text to strike through   |
+
+```ts
+strikethrough('removed'); // '~~removed~~'
+```
+
 ### `code(text)`
 
 Inline code span. Backtick count and spacing adjust automatically when the text itself contains backticks.

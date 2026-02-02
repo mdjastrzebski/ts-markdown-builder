@@ -74,6 +74,7 @@ It supports:
 
 - `bold(text: string)`
 - `italic(text: string)`
+- `strikethrough(text: string)` - GFM strikethrough
 - `code(text: string)`
 - `link(url: string, text?: string)` - link or autolink
 - `image(url: string, text?: string)`

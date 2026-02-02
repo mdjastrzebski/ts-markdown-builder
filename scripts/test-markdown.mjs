@@ -32,6 +32,7 @@ const output = md.joinBlocks([
   md.list([
     md.bold('bold'),
     md.italic('Italic'),
+    md.strikethrough('Strikethrough'),
     md.code('code with `backticks` and other **stuff**'),
     md.link('https://example.com', 'link'),
     md.link('https://example.com'),
