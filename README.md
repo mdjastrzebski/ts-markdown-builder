@@ -59,35 +59,35 @@ It supports:
 
 ### Utils
 
-- `joinBlocks(blocks: string[])` - join blocks of text into a single markdown document (string) 
+- [`joinBlocks(blocks: string[])`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#joinblocks) - join blocks of text into a single markdown document (string)
 
 ### Block
-- `heading(text: string, options?: { level: number = 1 })`
-- `blockquote(text: string | string[])`
-- `codeBlock(text: string, options?: { language?: string = '' })`
-- `list(items: string[])`
-- `orderedList(items: string[])`
-- `taskList(items: TaskListItem[])` - GFM task list with checkboxes (`TaskListItem: { text: string, done?: boolean }`)
-- `horizontalRule`
+- [`heading(text: string, options?: { level: number = 1 })`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#heading)
+- [`blockquote(text: string | string[])`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#blockquote)
+- [`codeBlock(text: string, options?: { language?: string = '' })`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#codeblock)
+- [`list(items: string[])`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#list)
+- [`orderedList(items: string[])`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#orderedlist)
+- [`taskList(items: TaskListItem[])`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#tasklist) - GFM task list with checkboxes (`TaskListItem: { text: string, done?: boolean }`)
+- [`horizontalRule`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#horizontalrule)
 
 ### Inline
 
-- `bold(text: string)`
-- `italic(text: string)`
-- `strikethrough(text: string)` - GFM strikethrough
-- `code(text: string)`
-- `link(url: string, text?: string)` - link or autolink
-- `image(url: string, text?: string)`
-- `escape(text: string)`
+- [`bold(text: string)`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#bold)
+- [`italic(text: string)`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#italic)
+- [`strikethrough(text: string)`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#strikethrough) - GFM strikethrough
+- [`code(text: string)`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#code)
+- [`link(url: string, text?: string)`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#link) - link or autolink
+- [`image(url: string, text?: string)`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#image)
+- [`escape(text: string)`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#escape)
 
 ### Table
 
-- `table(headers: string[], rows: string[][])`
+- [`table(headers: string[], rows: string[][])`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#table)
 
 ### HTML
 
-- `disclosure(title: string, content: string, options?: { open?: boolean })`
-- `lineBreak`
+- [`disclosure(title: string, content: string, options?: { open?: boolean })`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#disclosure)
+- [`lineBreak`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#linebreak)
 
 ## Contributing
 
@@ -99,4 +99,4 @@ MIT
 
 ## Reference
 
-See the full [API Reference](API.md) for detailed documentation, parameter descriptions, and usage examples.
+See the full [API Reference](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md) for detailed documentation, parameter descriptions, and usage examples.

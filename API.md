@@ -8,44 +8,43 @@ import { heading, bold, joinBlocks } from 'ts-markdown-builder';
 
 ## Block elements
 
-### `heading(text, options?)`
+### `heading`
+
+```ts
+heading('Title'); // # Title
+heading('Title', { level: 2 }); // ## Title
+```
 
 Markdown heading (`#`, `##`, etc.).
 
-| Parameter       | Type     | Default | Description         |
-| --------------- | -------- | ------- | ------------------- |
-| `text`          | `string` |         | Heading text        |
-| `options.level` | `number` | `1`     | Heading level (1-6) |
-
-```ts
-heading('Title'); // '# Title'
-heading('Title', { level: 2 }); // '## Title'
+```tsx
+heading(text: string, options?: { level?: number }): string
 ```
 
-### `blockquote(content)`
+- `text` — Heading text
+- `options.level` — Heading level (1-6). Default: `1`
 
-Blockquote block. Accepts a string or an array of strings (joined as separate blocks).
-
-| Parameter | Type                          | Description        |
-| --------- | ----------------------------- | ------------------ |
-| `content` | `string \| readonly string[]` | Blockquote content |
+### `blockquote`
 
 ```ts
 blockquote('Hello');
-// '> Hello'
+// > Hello
 
 blockquote(['Paragraph 1', 'Paragraph 2']);
-// '> Paragraph 1\n> \n> Paragraph 2'
+// > Paragraph 1
+// >
+// > Paragraph 2
 ```
 
-### `codeBlock(content, options?)`
+Blockquote block. Accepts a string or an array of strings (joined as separate blocks).
 
-Fenced code block. The backtick fence adjusts automatically when the content contains backticks.
+```tsx
+blockquote(content: string | readonly string[]): string
+```
 
-| Parameter          | Type     | Default | Description                                 |
-| ------------------ | -------- | ------- | ------------------------------------------- |
-| `content`          | `string` |         | Code content                                |
-| `options.language` | `string` | `''`    | Language identifier for syntax highlighting |
+- `content` — Blockquote content
+
+### `codeBlock`
 
 ````ts
 codeBlock('const x = 1;', { language: 'ts' });
@@ -54,156 +53,179 @@ codeBlock('const x = 1;', { language: 'ts' });
 // ```
 ````
 
-### `list(items)`
+Fenced code block. The backtick fence adjusts automatically when the content contains backticks.
 
-Unordered (bullet) list.
+```tsx
+codeBlock(content: string, options?: { language?: string }): string
+```
 
-| Parameter | Type                | Description |
-| --------- | ------------------- | ----------- |
-| `items`   | `readonly string[]` | List items  |
+- `content` — Code content
+- `options.language` — Language identifier for syntax highlighting. Default: `''`
+
+### `list`
 
 ```ts
 list(['Apples', 'Oranges']);
-// '- Apples\n- Oranges'
+// - Apples
+// - Oranges
 ```
 
-### `orderedList(items)`
+Unordered (bullet) list.
 
-Ordered (numbered) list.
+```tsx
+list(items: readonly string[]): string
+```
 
-| Parameter | Type                | Description |
-| --------- | ------------------- | ----------- |
-| `items`   | `readonly string[]` | List items  |
+- `items` — List items
+
+### `orderedList`
 
 ```ts
 orderedList(['First', 'Second']);
-// '1. First\n2. Second'
+// 1. First
+// 2. Second
 ```
 
-### `taskList(items)`
+Ordered (numbered) list.
+
+```tsx
+orderedList(items: readonly string[]): string
+```
+
+- `items` — List items
+
+### `taskList`
+
+```ts
+taskList([
+  { text: 'Buy milk', done: true },
+  { text: 'Write docs' },
+]);
+// - [x] Buy milk
+// - [ ] Write docs
+```
 
 GFM task list with checkboxes.
 
-| Parameter | Type                      | Description     |
-| --------- | ------------------------- | --------------- |
-| `items`   | `readonly TaskListItem[]` | Task list items |
+```tsx
+taskList(items: readonly TaskListItem[]): string
+```
+
+- `items` — Task list items
 
 **`TaskListItem`**
 
-| Field  | Type      | Default | Description                 |
-| ------ | --------- | ------- | --------------------------- |
-| `text` | `string`  |         | Item text                   |
-| `done` | `boolean` | `false` | Whether the item is checked |
-
 ```ts
-taskList([{ text: 'Buy milk', done: true }, { text: 'Write docs' }]);
-// '- [x] Buy milk\n- [ ] Write docs'
+interface TaskListItem {
+  text: string;
+  done?: boolean;
+}
 ```
+
+- `text` — Item text
+- `done` — Whether the item is checked. Default: `false`
 
 ### `horizontalRule`
 
-Horizontal rule constant. Not a function -- use it directly.
-
 ```ts
-horizontalRule; // '---'
+horizontalRule; // ---
 ```
+
+Horizontal rule constant. Not a function -- use it directly.
 
 ## Inline elements
 
-### `bold(text)`
+### `bold`
+
+```ts
+bold('important'); // **important**
+```
 
 Bold text (`**...**`).
 
-| Parameter | Type     | Description  |
-| --------- | -------- | ------------ |
-| `text`    | `string` | Text to bold |
-
-```ts
-bold('important'); // '**important**'
+```tsx
+bold(text: string): string
 ```
 
-### `italic(text)`
+- `text` — Text to bold
+
+### `italic`
+
+```ts
+italic('emphasis'); // *emphasis*
+```
 
 Italic text (`*...*`).
 
-| Parameter | Type     | Description       |
-| --------- | -------- | ----------------- |
-| `text`    | `string` | Text to italicize |
-
-```ts
-italic('emphasis'); // '*emphasis*'
+```tsx
+italic(text: string): string
 ```
 
-### `strikethrough(text)`
+- `text` — Text to italicize
+
+### `strikethrough`
+
+```ts
+strikethrough('removed'); // ~~removed~~
+```
 
 GFM strikethrough text (`~~...~~`).
 
-| Parameter | Type     | Description              |
-| --------- | -------- | ------------------------ |
-| `text`    | `string` | Text to strike through   |
-
-```ts
-strikethrough('removed'); // '~~removed~~'
+```tsx
+strikethrough(text: string): string
 ```
 
-### `code(text)`
+- `text` — Text to strike through
+
+### `code`
+
+```ts
+code('foo'); // `foo`
+```
 
 Inline code span. Backtick count and spacing adjust automatically when the text itself contains backticks.
 
-| Parameter | Type     | Description          |
-| --------- | -------- | -------------------- |
-| `text`    | `string` | Text to mark as code |
-
-```ts
-code('foo'); // '`foo`'
-code('has `tick`'); // '`` has `tick` ``'
+```tsx
+code(text: string): string
 ```
 
-### `link(url, text?)`
+- `text` — Text to mark as code
+
+### `link`
+
+```ts
+link('https://example.com', 'Example'); // [Example](https://example.com)
+link('https://example.com'); // <https://example.com>
+```
 
 Link or autolink. Without `text`, produces an autolink (`<url>`).
 
-| Parameter | Type     | Description        |
-| --------- | -------- | ------------------ |
-| `url`     | `string` | Link URL           |
-| `text`    | `string` | Optional link text |
-
-```ts
-link('https://example.com', 'Example'); // '[Example](https://example.com)'
-link('https://example.com'); // '<https://example.com>'
+```tsx
+link(url: string, text?: string): string
 ```
 
-### `image(url, text?)`
+- `url` — Link URL
+- `text` — Optional link text
+
+### `image`
+
+```ts
+image('photo.png', 'A photo'); // ![A photo](photo.png)
+image('photo.png'); // ![](photo.png)
+```
 
 Image (`![alt](url)`).
 
-| Parameter | Type     | Description       |
-| --------- | -------- | ----------------- |
-| `url`     | `string` | Image URL         |
-| `text`    | `string` | Optional alt text |
-
-```ts
-image('photo.png', 'A photo'); // '![A photo](photo.png)'
-image('photo.png'); // '![](photo.png)'
+```tsx
+image(url: string, text?: string): string
 ```
+
+- `url` — Image URL
+- `text` — Optional alt text
 
 ## Table
 
-### `table(header, rows, options?)`
-
-GFM table. Pipe characters and newlines in cell content are escaped automatically. Returns `''` if `header` is empty.
-
-| Parameter         | Type                  | Default | Description                             |
-| ----------------- | --------------------- | ------- | --------------------------------------- |
-| `header`          | `readonly string[]`   |         | Column headers                          |
-| `rows`            | `readonly string[][]` |         | Table rows                              |
-| `options.compact` | `boolean`             | `false` | When `true`, skips column-width padding |
-
-**`TableOptions`**
-
-| Field     | Type      | Default | Description                            |
-| --------- | --------- | ------- | -------------------------------------- |
-| `compact` | `boolean` | `false` | Disable column-width alignment padding |
+### `table`
 
 ```ts
 table(
@@ -218,29 +240,45 @@ table(
 // | Alice | 30  |
 // | Bob   | 25  |
 
-table(['A', 'B'], [['1', '2']], { compact: true });
+table(
+  ['A', 'B'],
+  [
+    ['1', '2'],
+  ],
+  { compact: true },
+);
 // | A | B |
 // | - | - |
 // | 1 | 2 |
 ```
 
+GFM table. Pipe characters and newlines in cell content are escaped automatically. Returns `''` if `header` is empty.
+
+```tsx
+table(
+  header: readonly string[],
+  rows: readonly string[][],
+  options?: TableOptions,
+): string
+```
+
+- `header` — Column headers
+- `rows` — Table rows
+- `options.compact` — When `true`, skips column-width padding. Default: `false`
+
+**`TableOptions`**
+
+```ts
+interface TableOptions {
+  compact?: boolean;
+}
+```
+
+- `compact` — Disable column-width alignment padding. Default: `false`
+
 ## HTML elements
 
-### `disclosure(title, content, options?)`
-
-HTML `<details>`/`<summary>` block. Content is wrapped with blank lines so markdown inside it renders correctly.
-
-| Parameter      | Type      | Default | Description                                   |
-| -------------- | --------- | ------- | --------------------------------------------- |
-| `title`        | `string`  |         | Summary text (plain text or markdown heading) |
-| `content`      | `string`  |         | Disclosure body (can contain markdown)        |
-| `options.open` | `boolean` | `false` | Whether the block is open by default          |
-
-**`DisclosureOptions`**
-
-| Field  | Type      | Default | Description                      |
-| ------ | --------- | ------- | -------------------------------- |
-| `open` | `boolean` | `false` | Render with the `open` attribute |
+### `disclosure`
 
 ```ts
 disclosure('Click me', 'Hidden content');
@@ -260,45 +298,76 @@ disclosure('Details', 'Body', { open: true });
 // </details>
 ```
 
-### `lineBreak`
+HTML `<details>`/`<summary>` block. Content is wrapped with blank lines so markdown inside it renders correctly.
 
-HTML line break constant. Not a function -- use it directly.
+```tsx
+disclosure(title: string, content: string, options?: DisclosureOptions): string
+```
+
+- `title` — Summary text (plain text or markdown heading)
+- `content` — Disclosure body (can contain markdown)
+- `options.open` — Whether the block is open by default. Default: `false`
+
+**`DisclosureOptions`**
+
+```ts
+interface DisclosureOptions {
+  open?: boolean;
+}
+```
+
+- `open` — Render with the `open` attribute. Default: `false`
+
+### `lineBreak`
 
 ```ts
 lineBreak; // '<br/>'
 ```
 
+HTML line break constant. Not a function -- use it directly.
+
 ## Utilities
 
-### `joinBlocks(blocks)`
+### `joinBlocks`
+
+```ts
+joinBlocks([
+  heading('Title'), 
+  list(['A', 'B']),
+  'Some text',
+]);
+// # Title
+//
+// - A
+// - B
+//
+// Some text'
+```
 
 Joins blocks with double newlines (a blank line between each). Trims leading/trailing newlines per block and drops empty ones. Accepts a single string or an array.
 
-| Parameter | Type                          | Description    |
-| --------- | ----------------------------- | -------------- |
-| `blocks`  | `string \| readonly string[]` | Blocks to join |
-
-```ts
-joinBlocks([heading('Title'), list(['A', 'B']), 'Some text']);
-// '# Title\n\n- A\n- B\n\nSome text'
+```tsx
+joinBlocks(blocks: string | readonly string[]): string
 ```
 
-### `escape(text)`
+- `blocks` — Blocks to join
+
+### `escape`
+
+```ts
+escape('**not bold**'); // \\*\\*not bold\\*\\*
+```
 
 Escapes markdown special characters (`\ ` `` ` `` `*` `_` `{` `}` `[` `]` `(` `)` `#` `+` `-` `.` `!` `|` `<` `>`).
 
-| Parameter | Type     | Description    |
-| --------- | -------- | -------------- |
-| `text`    | `string` | Text to escape |
-
-```ts
-escape('**not bold**'); // '\\*\\*not bold\\*\\*'
+```tsx
+escape(text: string): string
 ```
+
+- `text` — Text to escape
 
 ## Exported types
 
-| Type                | Description                 |
-| ------------------- | --------------------------- |
-| `TableOptions`      | Options for `table()`       |
-| `DisclosureOptions` | Options for `disclosure()`  |
-| `TaskListItem`      | Item shape for `taskList()` |
+- `TableOptions` — Options for `table()`
+- `DisclosureOptions` — Options for `disclosure()`
+- `TaskListItem` — Item shape for `taskList()`
