@@ -48,18 +48,27 @@ export function code(text: string): string {
   return `${backticks}${frontPadding}${text}${backPadding}${backticks}`;
 }
 
+// https://spec.commonmark.org/0.31.2/#email-address
+const EMAIL_REGEX =
+  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+
 /**
  * Create a link or autolink span.
  *
  * Markdown:
  * - `[text](url)` link when `text` is provided
- * - `<url>` autolink when `text` is not provided
+ * - `<url>` autolink when `text` is not provided and url is an email address or absolute URL
+ * - `[url](url)` when `text` is not provided and url is a relative URL
  *
  * @param url - The URL to be linked.
  * @param text - The title for the link (optional).
  */
 export function link(url: string, text?: string): string {
-  return text ? `[${text}](${url})` : `<${url}>`;
+  return text
+    ? `[${text}](${url})`
+    : EMAIL_REGEX.test(url) || URL.canParse(url)
+      ? `<${url}>`
+      : `[${url}](${url})`;
 }
 
 /**

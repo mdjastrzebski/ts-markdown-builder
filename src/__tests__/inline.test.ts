@@ -30,3 +30,10 @@ describe('code', () => {
     expect(md.code('`a` ``b`` ```c```')).toBe('```` `a` ``b`` ```c``` ````');
   });
 });
+
+describe('link', () => {
+  it('renders autolinks correctly', () => {
+    expect(md.link('https://example.com')).toBe('<https://example.com>');
+    expect(md.link('./relative.md')).toBe('[./relative.md](./relative.md)');
+  });
+});
