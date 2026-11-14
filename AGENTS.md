@@ -13,7 +13,7 @@ yarn test                    # Run all tests
 yarn test --watch            # Watch mode
 yarn test <path>             # Run specific test file (e.g., yarn test src/__tests__/block.test.ts)
 yarn typecheck               # Type-check without emitting
-yarn lint                    # ESLint check
+yarn lint                    # oxlint check
 yarn lint --fix              # Auto-fix lint issues
 yarn validate                # Run typecheck + lint + test (full check)
 yarn build                   # Full build (clean + commonjs + esm + types)
@@ -39,5 +39,5 @@ Babel transpiles TypeScript to both CommonJS (`dist/commonjs/`) and ESM (`dist/e
 - Pure functions returning strings; composable by passing one function's output as another's input
 - Optional parameters use an `options` object pattern (e.g., `heading(text, { level: 2 })`)
 - Tests use Jest with `toMatchInlineSnapshot()` for verifying markdown output
-- Prettier: single quotes, 2-space indent, trailing commas
+- oxfmt (Prettier-compatible, `.oxfmtrc.json`): single quotes, 2-space indent, trailing commas, 100-char lines
 - Edge cases like backtick escaping in `code()`/`codeBlock()` and pipe escaping in `table()` are handled automatically

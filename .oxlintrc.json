@@ -1,0 +1,49 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "unicorn", "oxc", "import", "jest"],
+  "env": { "builtin": true, "node": true },
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error",
+    "perf": "error"
+  },
+  "rules": {
+    "eqeqeq": "error",
+    "curly": ["error", "multi-line"],
+    "no-var": "error",
+    "prefer-const": "error",
+    "no-console": "error",
+    "no-else-return": "error",
+    "no-lonely-if": "error",
+    "no-unneeded-ternary": "error",
+    "no-useless-concat": "error",
+    "object-shorthand": "error",
+    "sort-imports": ["error", { "ignoreCase": true, "ignoreDeclarationSort": true }],
+
+    "typescript/no-explicit-any": "error",
+    "typescript/no-non-null-assertion": "error",
+    "typescript/consistent-type-imports": "error",
+    "typescript/consistent-type-definitions": ["error", "type"],
+    "typescript/array-type": ["error", { "default": "array" }],
+    "typescript/ban-ts-comment": "error",
+    "typescript/prefer-for-of": "error",
+
+    "import/no-cycle": "error",
+    "import/no-duplicates": "error",
+    "import/no-self-import": "error",
+    "import/first": "error",
+
+    "unicorn/prefer-node-protocol": "error",
+
+    "jest/no-focused-tests": "error",
+    "jest/no-disabled-tests": "error",
+    "jest/no-identical-title": "error"
+  },
+  "overrides": [
+    {
+      "files": ["scripts/**", "**/__tests__/**"],
+      "rules": { "no-console": "off" }
+    }
+  ],
+  "ignorePatterns": ["dist/**", "coverage/**", ".yarn/**"]
+}

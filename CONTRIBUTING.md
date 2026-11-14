@@ -19,7 +19,7 @@ yarn
 
 > Since the project relies on Yarn workspaces, you cannot use [`npm`](https://github.com/npm/cli) for development.
 
-Make sure your code passes TypeScript and ESLint. Run the following to verify:
+Make sure your code passes TypeScript and oxlint. Run the following to verify:
 
 ```sh
 yarn typecheck
@@ -53,9 +53,9 @@ Our pre-commit hooks verify that your commit message matches this format when co
 
 ### Linting and tests
 
-[ESLint](https://eslint.org/), [Prettier](https://prettier.io/), [TypeScript](https://www.typescriptlang.org/)
+[oxlint](https://oxc.rs/docs/guide/usage/linter), [oxfmt](https://oxc.rs/docs/guide/usage/formatter), [TypeScript](https://www.typescriptlang.org/)
 
-We use [TypeScript](https://www.typescriptlang.org/) for type checking, [ESLint](https://eslint.org/) with [Prettier](https://prettier.io/) for linting and formatting the code, and [Jest](https://jestjs.io/) for testing.
+We use [TypeScript](https://www.typescriptlang.org/) for type checking, [oxlint](https://oxc.rs/docs/guide/usage/linter) for linting and [oxfmt](https://oxc.rs/docs/guide/usage/formatter) for formatting the code, and [Jest](https://jestjs.io/) for testing.
 
 Our pre-commit hooks verify that the linter and tests pass when committing.
 
@@ -75,7 +75,7 @@ The `package.json` file contains various scripts for common tasks:
 
 - `yarn`: setup project by installing dependencies and pods - run with `POD_INSTALL=0` to skip installing pods.
 - `yarn typecheck`: type-check files with TypeScript.
-- `yarn lint`: lint files with ESLint.
+- `yarn lint`: lint files with oxlint.
 - `yarn test`: run unit tests with Jest.
 
 ### Sending a pull request

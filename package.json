@@ -22,7 +22,7 @@
   "scripts": {
     "test": "jest",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "lint": "oxlint",
     "clean": "del-cli dist",
     "build": "yarn clean && yarn build:commonjs && yarn build:esm && yarn build:types",
     "build:commonjs": "BABEL_ENV=cjs babel src --out-dir \"dist/commonjs\" --extensions .js,.ts --out-file-extension .js --source-maps --no-comments",
@@ -52,21 +52,16 @@
   "devDependencies": {
     "@babel/cli": "^7.29.7",
     "@babel/core": "^7.29.13",
-    "@babel/plugin-syntax-flow": "^7.29.7",
-    "@babel/plugin-transform-react-jsx": "^7.29.7",
     "@babel/preset-env": "^7.29.14",
     "@babel/preset-typescript": "^7.29.7",
-    "@callstack/eslint-config": "^15.0.0",
     "@release-it/conventional-changelog": "^12.0.2",
     "@size-limit/preset-small-lib": "^14.3.0",
     "@types/jest": "^30.0.0",
     "babel-plugin-add-import-extension": "^1.6.0",
     "del-cli": "^8.0.1",
-    "eslint": "^8.57.1",
-    "eslint-plugin-flowtype": "^8.0.3",
-    "eslint-plugin-import": "^2.32.0",
     "jest": "^30.5.2",
     "oxfmt": "^0.78.0",
+    "oxlint": "^1.93.0",
     "release-it": "^21.1.2",
     "size-limit": "^14.3.0",
     "typescript": "^5.9.3"
@@ -76,9 +71,6 @@
     "node": ">= 18.0.0"
   },
   "jest": {
-    "setupFilesAfterEnv": [
-      "<rootDir>/jest-setup.ts"
-    ],
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}"
     ],
@@ -137,32 +129,6 @@
       }
     }
   },
-  "eslintConfig": {
-    "root": true,
-    "extends": [
-      "@callstack/eslint-config/node"
-    ],
-    "plugins": [
-      "import"
-    ],
-    "rules": {
-      "prettier/prettier": "off",
-      "sort-imports": [
-        "error",
-        {
-          "ignoreCase": true,
-          "ignoreDeclarationSort": true
-        }
-      ],
-      "import/order": "error"
-    }
-  },
-  "eslintIgnore": [
-    "node_modules/",
-    "dist/",
-    "coverage/",
-    "website/"
-  ],
   "size-limit": [
     {
       "path": "./dist/esm/index.mjs",

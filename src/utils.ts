@@ -27,8 +27,8 @@ export function maxBackticks(text: string): number {
   let max = 0;
   let current = 0;
 
-  for (let i = 0; i < text.length; i++) {
-    if (text[i] === '`') {
+  for (const char of text) {
+    if (char === '`') {
       current++;
       max = Math.max(max, current);
     } else {
