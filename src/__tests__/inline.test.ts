@@ -18,6 +18,18 @@ describe('strikethrough', () => {
   });
 });
 
+describe('link', () => {
+  it('renders correctly', () => {
+    expect(md.link('https://example.com', 'Example')).toBe('[Example](https://example.com)');
+  });
+
+  it('uses url as text when text is not provided', () => {
+    expect(md.link('https://example.com')).toBe('[https://example.com](https://example.com)');
+    expect(md.link('./docs/page.md')).toBe('[./docs/page.md](./docs/page.md)');
+    expect(md.link('/about')).toBe('[/about](/about)');
+  });
+});
+
 describe('code', () => {
   it('renders correctly', () => {
     expect(md.code('Hello, World!')).toBe('`Hello, World!`');

@@ -52,17 +52,15 @@ export function code(text: string): string {
 }
 
 /**
- * Create a link or autolink span.
+ * Create a link span.
  *
- * Markdown:
- * - `[text](url)` link when `text` is provided
- * - `<url>` autolink when `text` is not provided
+ * Markdown: `[text](url)`, or `[url](url)` when `text` is not provided.
  *
  * @param url - The URL to be linked.
- * @param text - The title for the link (optional).
+ * @param text - The title for the link (optional, defaults to `url`).
  */
 export function link(url: string, text?: string): string {
-  return text ? `[${text}](${url})` : `<${url}>`;
+  return `[${text || url}](${url})`;
 }
 
 /**
