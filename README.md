@@ -6,7 +6,7 @@
 
 # TS Markdown Builder
 
-Elegant markdown builder with minimal bundle size.
+Elegant Markdown builder for TypeScript: zero dependencies, tree-shakable, under 1 kB.
 
 ## Goal
 
