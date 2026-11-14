@@ -27,6 +27,11 @@ describe('code', () => {
     expect(md.code('Hello, `World`!')).toBe('``Hello, `World`!``');
     expect(md.code('`single`')).toBe('`` `single` ``');
     expect(md.code('``nested``')).toBe('``` ``nested`` ```');
+    expect(md.code('html`<div />`')).toBe('`` html`<div />` ``');
+    expect(md.code('`users`.id')).toBe('`` `users`.id ``');
+    expect(md.code('`a ')).toBe('`` `a  ``');
+    expect(md.code(' a ')).toBe('`  a  `');
+    expect(md.code(' ')).toBe('` `');
     expect(md.code('`a` ``b`` ```c```')).toBe('```` `a` ``b`` ```c``` ````');
   });
 });
