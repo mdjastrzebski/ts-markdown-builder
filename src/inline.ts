@@ -43,9 +43,12 @@ export function strikethrough(text: string): string {
 export function code(text: string): string {
   const backticksCount = maxBackticks(text) + 1;
   const backticks = '`'.repeat(backticksCount);
-  const frontPadding = text.startsWith('`') ? ' ' : '';
-  const backPadding = text.endsWith('`') ? ' ' : '';
-  return `${backticks}${frontPadding}${text}${backPadding}${backticks}`;
+  const needsPadding =
+    text.startsWith('`') ||
+    text.endsWith('`') ||
+    (text.startsWith(' ') && text.endsWith(' ') && /[^ ]/.test(text));
+  const padding = needsPadding ? ' ' : '';
+  return `${backticks}${padding}${text}${padding}${backticks}`;
 }
 
 /**
