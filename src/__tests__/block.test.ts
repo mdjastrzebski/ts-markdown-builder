@@ -67,6 +67,34 @@ describe('blockquote', () => {
   });
 });
 
+describe('alert', () => {
+  it.each(['note', 'tip', 'important', 'warning', 'caution'] as const)(
+    'renders %s type',
+    (type) => {
+      expect(md.alert(type, 'Hello')).toBe(`> [!${type.toUpperCase()}]\n> Hello`);
+    },
+  );
+
+  it('renders multiline string', () => {
+    expect(md.alert('note', 'Line 1\nLine 2')).toBe('> [!NOTE]\n> Line 1\n> Line 2');
+  });
+
+  it('renders array content as separate blocks', () => {
+    expect(md.alert('tip', ['P1', 'P2'])).toBe('> [!TIP]\n> P1\n> \n> P2');
+  });
+
+  it('renders nested block elements', () => {
+    expect(
+      md.alert('important', [md.codeBlock('x = 1', { language: 'js' }), md.list(['A', 'B'])]),
+    ).toBe('> [!IMPORTANT]\n> ```js\n> x = 1\n> ```\n> \n> - A\n> - B');
+  });
+
+  it('renders empty content as marker line plus empty quote line', () => {
+    expect(md.alert('note', '')).toMatchInlineSnapshot(`"> [!NOTE]"`);
+    expect(md.alert('note', [])).toMatchInlineSnapshot(`"> [!NOTE]"`);
+  });
+});
+
 describe('list', () => {
   it('renders correctly', () => {
     const items = ['Item 1', 'Item 2', 'Item 3'];

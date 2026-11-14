@@ -58,6 +58,18 @@ const output = md.joinBlocks([
     md.list(['Item 1', 'Item 2', 'Item 3']),
   ]),
 
+  md.heading('Alerts', { level: 2 }),
+  md.alert('note', 'Useful information that users should know, even when skimming content.'),
+  md.alert('tip', 'Helpful advice for doing things better or more easily.'),
+  md.alert('important', 'Key information users need to know to achieve their goal.'),
+  md.alert('warning', `Run ${md.code('yarn build')} first.`),
+  md.alert('caution', 'Advises about risks or negative outcomes of certain actions.'),
+  md.alert('note', [
+    'Alert with multiple blocks:',
+    md.list(['Item 1', 'Item 2']),
+    md.codeBlock('const x = 1;', { language: 'ts' }),
+  ]),
+
   md.heading('Tables', { level: 2 }),
   table,
 

@@ -38,6 +38,24 @@ export function blockquote(content: string | readonly string[]): string {
   return prefixLines(joinBlocks(content), '> ');
 }
 
+export type AlertType = 'note' | 'tip' | 'important' | 'warning' | 'caution';
+
+/**
+ * Create a GitHub alert (callout) block.
+ *
+ * Markdown:
+ * ```
+ * > [!NOTE]
+ * > Content
+ * ```
+ *
+ * @param type - The alert type: `note`, `tip`, `important`, `warning` or `caution`.
+ * @param content - The content of the alert.
+ */
+export function alert(type: AlertType, content: string | readonly string[]): string {
+  return blockquote(`[!${type.toUpperCase()}]\n${joinBlocks(content)}`);
+}
+
 type CodeBlockOptions = {
   language?: string;
 };
