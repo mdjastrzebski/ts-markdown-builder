@@ -6,6 +6,11 @@ Every function is pure and returns a string. You can compose them by passing one
 import { heading, bold, joinBlocks } from 'ts-markdown-builder';
 ```
 
+Output is [CommonMark](https://spec.commonmark.org/) unless a function is marked as an extension:
+
+- **GFM extension** — part of the [GitHub Flavored Markdown spec](https://github.github.com/gfm/). Supported by GitHub and most GFM renderers (e.g. `remark-gfm`).
+- **GitHub extension** — GitHub-only syntax that isn't in the GFM spec. Other renderers show the fallback described for that function.
+
 ## Block elements
 
 ### `heading`
@@ -43,6 +48,23 @@ blockquote(content: string | readonly string[]): string
 ```
 
 - `content` — Blockquote content
+
+### `alert`
+
+```ts
+alert('warning', 'Run `yarn build` first.');
+// > [!WARNING]
+// > Run `yarn build` first.
+```
+
+**GitHub extension.** Alert (callout) block. Accepts a string or an array of strings (joined as separate blocks), rendered as a blockquote under a `[!TYPE]` marker line. Renderers without alert support show a regular blockquote with a literal `[!TYPE]` first line.
+
+```tsx
+alert(type: 'note' | 'tip' | 'important' | 'warning' | 'caution', content: string | readonly string[]): string
+```
+
+- `type` — Alert type
+- `content` — Alert content
 
 ### `codeBlock`
 
@@ -105,7 +127,7 @@ taskList([
 // - [ ] Write docs
 ```
 
-GFM task list with checkboxes. Items can be plain strings (unchecked by default) or `TaskListItem` objects.
+**GFM extension.** Task list with checkboxes. Items can be plain strings (unchecked by default) or `TaskListItem` objects.
 
 ```tsx
 taskList(items: readonly (string | TaskListItem)[]): string
@@ -169,7 +191,7 @@ italic(text: string): string
 strikethrough('removed'); // ~~removed~~
 ```
 
-GFM strikethrough text (`~~...~~`).
+**GFM extension.** Strikethrough text (`~~...~~`).
 
 ```tsx
 strikethrough(text: string): string
@@ -253,7 +275,7 @@ table(
 // | 1 | 2 |
 ```
 
-GFM table. Pipe characters and newlines in cell content are escaped automatically. Returns `''` if `header` is empty.
+**GFM extension.** Table. Pipe characters and newlines in cell content are escaped automatically. Returns `''` if `header` is empty.
 
 ```tsx
 table(

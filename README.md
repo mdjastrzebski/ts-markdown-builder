@@ -64,17 +64,18 @@ It supports:
 ### Block
 - [`heading(text: string, options?: { level: number = 1 })`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#heading)
 - [`blockquote(text: string | string[])`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#blockquote)
+- [`alert(type: AlertType, content: string | string[])`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#alert) - alert (callout); type is `'note' | 'tip' | 'important' | 'warning' | 'caution'` _(GitHub extension)_
 - [`codeBlock(text: string, options?: { language?: string = '' })`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#codeblock)
 - [`list(items: string[])`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#list)
 - [`orderedList(items: string[])`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#orderedlist)
-- [`taskList(items: (string | TaskListItem)[])`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#tasklist) - GFM task list with checkboxes (items can be strings or `{ text: string, done?: boolean }`)
+- [`taskList(items: (string | TaskListItem)[])`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#tasklist) - task list with checkboxes (items can be strings or `{ text: string, done?: boolean }`) _(GFM extension)_
 - [`horizontalRule`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#horizontalrule)
 
 ### Inline
 
 - [`bold(text: string)`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#bold)
 - [`italic(text: string)`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#italic)
-- [`strikethrough(text: string)`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#strikethrough) - GFM strikethrough
+- [`strikethrough(text: string)`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#strikethrough) _(GFM extension)_
 - [`code(text: string)`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#code)
 - [`link(url: string, text?: string)`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#link) - link
 - [`image(url: string, text?: string)`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#image)
@@ -82,7 +83,7 @@ It supports:
 
 ### Table
 
-- [`table(headers: string[], rows: string[][])`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#table)
+- [`table(headers: string[], rows: string[][])`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#table) _(GFM extension)_
 
 ### HTML
 

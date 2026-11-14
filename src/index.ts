@@ -2,6 +2,7 @@ export {
   horizontalRule,
   heading,
   blockquote,
+  alert,
   orderedList,
   list,
   codeBlock,
@@ -14,4 +15,4 @@ export { escape, joinBlocks } from './utils';
 
 export type { TableOptions } from './table';
 export type { DisclosureOptions } from './html';
-export type { TaskListItem } from './block';
+export type { AlertType, TaskListItem } from './block';
