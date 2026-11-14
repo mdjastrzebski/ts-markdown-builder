@@ -98,7 +98,7 @@
     },
     "github": {
       "release": true,
-      "releaseName": "v${version} (${date:yyyy-MM-dd})"
+      "releaseName": "v${version} (${new Date().toISOString().slice(0, 10)})"
     },
     "plugins": {
       "@release-it/conventional-changelog": {
