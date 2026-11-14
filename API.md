@@ -195,17 +195,18 @@ code(text: string): string
 
 ```ts
 link('https://example.com', 'Example'); // [Example](https://example.com)
-link('https://example.com'); // <https://example.com>
+link('https://example.com'); // [https://example.com](https://example.com)
+link('./docs/page.md'); // [./docs/page.md](./docs/page.md)
 ```
 
-Link or autolink. Without `text`, produces an autolink (`<url>`).
+Link. Without `text`, the URL is used as the link text (`[url](url)`), which works for relative URLs too.
 
 ```tsx
 link(url: string, text?: string): string
 ```
 
 - `url` — Link URL
-- `text` — Optional link text
+- `text` — Optional link text (defaults to `url`)
 
 ### `image`
 

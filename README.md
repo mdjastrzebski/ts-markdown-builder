@@ -76,7 +76,7 @@ It supports:
 - [`italic(text: string)`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#italic)
 - [`strikethrough(text: string)`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#strikethrough) - GFM strikethrough
 - [`code(text: string)`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#code)
-- [`link(url: string, text?: string)`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#link) - link or autolink
+- [`link(url: string, text?: string)`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#link) - link
 - [`image(url: string, text?: string)`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#image)
 - [`escape(text: string)`](https://github.com/mdjastrzebski/ts-markdown-builder/blob/main/API.md#escape)
 
