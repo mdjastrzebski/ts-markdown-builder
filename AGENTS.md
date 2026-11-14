@@ -9,14 +9,14 @@ ts-markdown-builder is a lightweight, tree-shakable TypeScript library for progr
 ## Commands
 
 ```bash
-yarn test                    # Run all tests
-yarn test --watch            # Watch mode
-yarn test <path>             # Run specific test file (e.g., yarn test src/__tests__/block.test.ts)
-yarn typecheck               # Type-check without emitting
-yarn lint                    # oxlint check
-yarn lint --fix              # Auto-fix lint issues
-yarn validate                # Run typecheck + lint + test (full check)
-yarn build                   # Full build (clean + commonjs + esm + types)
+pnpm test                    # Run all tests
+pnpm test --watch            # Watch mode
+pnpm test <path>             # Run specific test file (e.g., pnpm test src/__tests__/block.test.ts)
+pnpm typecheck               # Type-check without emitting
+pnpm lint                    # oxlint check
+pnpm lint --fix              # Auto-fix lint issues
+pnpm validate                # Run typecheck + lint + test (full check)
+pnpm build                   # Full build (clean + commonjs + esm + types)
 ```
 
 ## Architecture

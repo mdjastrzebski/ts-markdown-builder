@@ -62,7 +62,7 @@ const output = md.joinBlocks([
   md.alert('note', 'Useful information that users should know, even when skimming content.'),
   md.alert('tip', 'Helpful advice for doing things better or more easily.'),
   md.alert('important', 'Key information users need to know to achieve their goal.'),
-  md.alert('warning', `Run ${md.code('yarn build')} first.`),
+  md.alert('warning', `Run ${md.code('pnpm build')} first.`),
   md.alert('caution', 'Advises about risks or negative outcomes of certain actions.'),
   md.alert('note', [
     'Alert with multiple blocks:',

@@ -10,20 +10,11 @@ jsconfig.json
 #
 node_modules/
 npm-debug.log
-yarn-debug.log
-yarn-error.log
+pnpm-debug.log
 
 # BUCK
 buck-out/
 \.buckd/
-
-# Yarn
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
 
 # Turborepo
 .turbo/

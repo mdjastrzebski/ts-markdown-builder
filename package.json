@@ -24,14 +24,14 @@
     "typecheck": "tsc --noEmit",
     "lint": "oxlint",
     "clean": "del-cli dist",
-    "build": "yarn clean && yarn build:commonjs && yarn build:esm && yarn build:types",
+    "build": "pnpm clean && pnpm build:commonjs && pnpm build:esm && pnpm build:types",
     "build:commonjs": "BABEL_ENV=cjs babel src --out-dir \"dist/commonjs\" --extensions .js,.ts --out-file-extension .js --source-maps --no-comments",
     "build:esm": "BABEL_ENV=esm babel src --out-dir \"dist/esm\" --extensions .js,.ts --out-file-extension .mjs  --source-maps --no-comments",
     "build:types": "tsc --project tsconfig.release.json --outDir \"dist/types\"",
     "format": "oxfmt",
     "format:check": "oxfmt --check",
-    "validate": "yarn typecheck && yarn lint && yarn test && yarn format:check",
-    "validate:fix": "yarn format && yarn lint --fix && yarn typecheck && yarn test && yarn build",
+    "validate": "pnpm typecheck && pnpm lint && pnpm test && pnpm format:check",
+    "validate:fix": "pnpm format && pnpm lint --fix && pnpm typecheck && pnpm test && pnpm build",
     "release": "release-it",
     "release:beta": "release-it --preRelease=beta"
   },
@@ -52,6 +52,7 @@
   "devDependencies": {
     "@babel/cli": "^7.29.7",
     "@babel/core": "^7.29.13",
+    "@babel/plugin-transform-modules-commonjs": "^7.29.14",
     "@babel/preset-env": "^7.29.14",
     "@babel/preset-typescript": "^7.29.7",
     "@release-it/conventional-changelog": "^12.0.2",
@@ -66,7 +67,7 @@
     "size-limit": "^14.3.0",
     "typescript": "^5.9.3"
   },
-  "packageManager": "yarn@4.9.4+sha512.7b1cb0b62abba6a537b3a2ce00811a843bea02bcf53138581a6ae5b1bf563f734872bd47de49ce32a9ca9dcaff995aa789577ffb16811da7c603dcf69e73750b",
+  "packageManager": "pnpm@12.18.0",
   "engines": {
     "node": ">= 18.0.0"
   },
@@ -81,11 +82,11 @@
   "release-it": {
     "hooks": {
       "before:init": [
-        "yarn typecheck",
-        "yarn test",
-        "yarn lint"
+        "pnpm typecheck",
+        "pnpm test",
+        "pnpm lint"
       ],
-      "after:bump": "yarn build",
+      "after:bump": "pnpm build",
       "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
     },
     "git": {

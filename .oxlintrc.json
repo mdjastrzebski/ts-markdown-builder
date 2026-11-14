@@ -45,5 +45,5 @@
       "rules": { "no-console": "off" }
     }
   ],
-  "ignorePatterns": ["dist/**", "coverage/**", ".yarn/**"]
+  "ignorePatterns": ["dist/**", "coverage/**"]
 }
