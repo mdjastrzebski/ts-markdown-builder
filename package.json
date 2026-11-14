@@ -1,6 +1,6 @@
 {
   "name": "ts-markdown-builder",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Elegant Markdown builder for TypeScript: zero dependencies, tree-shakable, under 1 kB.",
   "main": "dist/commonjs/index.js",
   "module": "dist/esm/index.mjs",
