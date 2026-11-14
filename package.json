@@ -28,8 +28,8 @@
     "build:commonjs": "BABEL_ENV=cjs babel src --out-dir \"dist/commonjs\" --extensions .js,.ts --out-file-extension .js --source-maps --no-comments",
     "build:esm": "BABEL_ENV=esm babel src --out-dir \"dist/esm\" --extensions .js,.ts --out-file-extension .mjs  --source-maps --no-comments",
     "build:types": "tsc --project tsconfig.release.json --outDir \"dist/types\"",
-    "format": "prettier --write \"**/*.{js,ts,tsx}\"",
-    "format:check": "prettier --check \"**/*.{js,ts,tsx}\"",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
     "validate": "yarn typecheck && yarn lint && yarn test && yarn format:check",
     "validate:fix": "yarn format && yarn lint --fix && yarn typecheck && yarn test && yarn build",
     "release": "release-it",
@@ -63,12 +63,10 @@
     "babel-plugin-add-import-extension": "^1.6.0",
     "del-cli": "^8.0.1",
     "eslint": "^8.57.1",
-    "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-flowtype": "^8.0.3",
     "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-prettier": "^5.5.7",
     "jest": "^30.5.2",
-    "prettier": "^3.10.1",
+    "oxfmt": "^0.78.0",
     "release-it": "^21.1.2",
     "size-limit": "^14.3.0",
     "typescript": "^5.9.3"
@@ -142,23 +140,13 @@
   "eslintConfig": {
     "root": true,
     "extends": [
-      "@callstack/eslint-config/node",
-      "prettier"
+      "@callstack/eslint-config/node"
     ],
     "plugins": [
       "import"
     ],
     "rules": {
-      "prettier/prettier": [
-        "error",
-        {
-          "quoteProps": "consistent",
-          "singleQuote": true,
-          "tabWidth": 2,
-          "trailingComma": "all",
-          "useTabs": false
-        }
-      ],
+      "prettier/prettier": "off",
       "sort-imports": [
         "error",
         {
@@ -175,13 +163,6 @@
     "coverage/",
     "website/"
   ],
-  "prettier": {
-    "quoteProps": "consistent",
-    "singleQuote": true,
-    "tabWidth": 2,
-    "trailingComma": "all",
-    "useTabs": false
-  },
   "size-limit": [
     {
       "path": "./dist/esm/index.mjs",

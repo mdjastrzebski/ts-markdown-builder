@@ -1,0 +1,11 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "quoteProps": "consistent",
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "all",
+  "useTabs": false,
+  "printWidth": 100,
+  "sortPackageJson": false,
+  "ignorePatterns": ["**/*.md"]
+}
